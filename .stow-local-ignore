@@ -7,3 +7,4 @@
 ^/COPYING
 
 .stow-local-ignore
+plugins.zsh

@@ -1,3 +1,7 @@
+source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
+
+antidote load $HOME/.zsh/plugins.txt
+
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/default_config.toml)"
 fi
