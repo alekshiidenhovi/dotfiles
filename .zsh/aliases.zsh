@@ -7,6 +7,7 @@ alias gpuom='git push -u origin main'
 alias gmain='git branch -m main'
 alias glog='git log --oneline --graph --decorate --all --date=relative'
 alias gundo='git reset --soft HEAD^'
+alias gamend='git commit --no-edit --amend'
 
 # General navigation
 
