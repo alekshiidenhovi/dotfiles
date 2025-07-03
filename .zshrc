@@ -23,4 +23,4 @@ bindkey '^[[8710;7u' autosuggest-clear
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-
+source ~/.zsh/history_config.zsh
