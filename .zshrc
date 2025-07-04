@@ -12,7 +12,6 @@ antidote load $HOME/.zsh/plugins.txt
 autoload -U compinit && compinit 
 
 # Add aliases
-
 if [ -f ~/.zsh/aliases.zsh ]; then
   source ~/.zsh/aliases.zsh
 fi
@@ -21,4 +20,4 @@ source ~/.zsh/keybindings.zsh
 source ~/.zsh/history_config.zsh
 
 source <(fzf --zsh)
-
+eval "$(zoxide init --cmd cd zsh)"

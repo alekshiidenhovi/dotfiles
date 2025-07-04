@@ -23,3 +23,9 @@ Most Mac and Linux systems come pre-installed with git. If not, you can [install
 
 ### Antidote
 [Antidote](https://antidote.sh/) is the zsh plugin manager of choice for this project. It is a spiritual successor of plugin managers [Antigen](https://github.com/zsh-users/antigen) and [Antibody](https://github.com/getantibody/antibody). [Install Antidote](https://antidote.sh/install) by running `brew install antidote`
+
+### Zoxide
+[Zoxide]/(https://github.com/ajeetdsouza/zoxide) is an extended cd command, that collect cd usage statistics, allowing smarter jumping between directories. [Install Zoxide](https://github.com/ajeetdsouza/zoxide#installation) running `brew install zoxide`
+
+### Fzf
+[Fzf](https://github.com/junegunn/fzf) is an interactive filter program that cuts down searching speed by implementing a fast fuzzy algorithm for file and directory search. [Install fzf](https://github.com/junegunn/fzf#using-homebrew) running `brew install fzf`
