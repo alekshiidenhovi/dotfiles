@@ -1,7 +1,5 @@
 # Git shortcuts
 alias gst='git status'
-alias ga='git add'
-alias gc='git commit -m'
 alias gp='git push'
 alias gpuom='git push -u origin main'
 alias gmain='git branch -m main'
