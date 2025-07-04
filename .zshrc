@@ -9,6 +9,7 @@ fi
 source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
 
 antidote load $HOME/.zsh/plugins.txt
+autoload -U compinit && compinit 
 
 # Add aliases
 
