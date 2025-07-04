@@ -19,3 +19,6 @@ fi
 
 source ~/.zsh/keybindings.zsh
 source ~/.zsh/history_config.zsh
+
+source <(fzf --zsh)
+
