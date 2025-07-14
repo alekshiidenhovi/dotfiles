@@ -1,3 +1,7 @@
+# Link local configuration, such as PATH exports 
+if [ -f ~/.zshrc.local ]; then
+    . ~/.zshrc.local
+fi
 
 # Init prompt
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
