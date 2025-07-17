@@ -23,6 +23,8 @@ gundo() {
 # General navigation
 alias fvim='nvim $(fzf -m --preview="bat --color=always {}")'
 alias ffile='fzf --preview="bat --color=always {}"'
+alias ...='cd ../..'
+alias ..='cd ..'
 
 # Repo navigation
 alias repos='cd $HOME/repos'
