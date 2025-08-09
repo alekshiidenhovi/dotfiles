@@ -1,6 +1,7 @@
 # Git shortcuts
 alias gst='git status'
 alias gp='git push'
+alias gpf='git push --force-with-lease'
 alias gpuom='git push -u origin main'
 alias gmain='git branch -m main'
 alias glog='git log --oneline --graph --decorate --all --date=relative'
