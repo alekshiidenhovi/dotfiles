@@ -24,7 +24,7 @@ require("configs.neovim-from-scratch.options")
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    -- import your plugins
-    { import = "plugins.lazy" },
+    { import = "plugins.lazy" }
   },
+  checker = { enabled = true }
 })
