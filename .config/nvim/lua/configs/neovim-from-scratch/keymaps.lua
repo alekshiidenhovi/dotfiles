@@ -41,6 +41,11 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 keymap("i", "kj", "<ESC>", opts)
 keymap("i", "jk", "<ESC>", opts)
 
+-- Execute --
+vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
+vim.keymap.set("n", "<space>x", ":.lua<CR>")
+vim.keymap.set("v", "<space>x", ":lua<CR>")
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
