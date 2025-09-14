@@ -6,7 +6,7 @@ return {
     build = ":TSUpdate",
     config = function()
       require('nvim-treesitter.configs').setup {
-        ensure_installed = { 
+        ensure_installed = {
           "c",
           "cpp",
           "css",
@@ -25,7 +25,7 @@ return {
           "sql",
           "terraform",
           "typescript",
-          "vim", 
+          "vim",
           "vimdoc",
           "vue",
           "yaml",
