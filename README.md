@@ -38,7 +38,6 @@ sed -i '' "s/simple/$(scutil --get LocalHostName)/" flake.nix
 As darwin-rebuild won't be installed in your PATH at this point, you can use the following command:
 # To use Nixpkgs unstable:
 sudo nix run nix-darwin/master#darwin-rebuild -- switch
-```
 
 #### 3. Using nix-darwin
 After install `nix-darwin`, you can run `darwin-rebuild` to apply changes to your system:
@@ -69,3 +68,6 @@ After stow has been installed, you can sync symlinks from HOME directory to your
 
 ### Fzf
 [Fzf](https://github.com/junegunn/fzf) is an interactive filter program that cuts down searching speed by implementing a fast fuzzy algorithm for file and directory search. [Install fzf](https://github.com/junegunn/fzf#using-homebrew) running `brew install fzf`
+
+### Nerd Font
+This config uses the [Hack](https://www.programmingfonts.org/#hack) [Nerd Font](https://www.nerdfonts.com/#home). On MacOS, [install](https://formulae.brew.sh/cask/font-hack-nerd-font) Hack Nerd Font by running `brew install --cask font-hack-nerd-font`.
