@@ -2,6 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
+      'saghen/blink.cmp',
       {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
@@ -14,16 +15,26 @@ return {
         },
       },
     },
-    config = function()
-      vim.lsp.enable("lua_ls")
+    opts = {
+      servers = {
+        lua_ls = {}
+      }
+    },
+    config = function(_, opts)
+      -- Link capabilities between LSP and blink.cmp
+      local lspconfig = require("lspconfig")
+      for server, config in pairs(opts.servers) do
+        config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
+        lspconfig[server].setup(config)
+      end
+
+      -- Setup autoformatting on save
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('my.lsp', {}),
         callback = function(args)
           local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
           if not client then return end
 
-          -- Auto-format ("lint") on save.
-          -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
           if not client:supports_method('textDocument/willSaveWaitUntil')
               and client:supports_method('textDocument/formatting') then
             vim.api.nvim_create_autocmd('BufWritePre', {
