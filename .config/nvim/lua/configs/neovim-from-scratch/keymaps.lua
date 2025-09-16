@@ -25,8 +25,6 @@ keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
-
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)
 keymap("n", "<C-Down>", ":resize -2<CR>", opts)
@@ -62,6 +60,10 @@ keymap("v", "p", '"_dP', opts)
 
 -- Oil --
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
+-- Neo-tree --
+vim.keymap.set("n", "<leader>e", "<cmd>Neotree action=show toggle=true<CR>", opts)
+
 
 -- Visual Block --
 -- Move text up and down
