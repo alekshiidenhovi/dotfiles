@@ -90,3 +90,5 @@ vim.keymap.set("n", "<leader>tla", function()
     print("No terminal channel active")
   end
 end)
+
+vim.keymap.set("t", "<leader>e", "<C-\\><C-n>")
