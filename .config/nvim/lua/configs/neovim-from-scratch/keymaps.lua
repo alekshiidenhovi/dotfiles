@@ -83,12 +83,12 @@ vim.keymap.set("n", "<leader>ts", function()
   vim.cmd.wincmd("J")
   vim.api.nvim_win_set_height(0, 10)
 
-  channel_id = vim.b.terminal_job_id
+  Channel_id = vim.b.terminal_job_id
 end)
 
 vim.keymap.set("n", "<leader>tla", function()
-  if channel_id then
-    vim.fn.chansend(channel_id, "la\n")
+  if Channel_id then
+    vim.fn.chansend(Channel_id, "la\n")
   else
     print("No terminal channel active")
   end
