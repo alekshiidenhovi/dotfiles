@@ -73,3 +73,20 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+vim.keymap.set("n", "<leader>ts", function()
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.cmd.wincmd("J")
+  vim.api.nvim_win_set_height(0, 10)
+
+  channel_id = vim.b.terminal_job_id
+end)
+
+vim.keymap.set("n", "<leader>tla", function()
+  if channel_id then
+    vim.fn.chansend(channel_id, "la\n")
+  else
+    print("No terminal channel active")
+  end
+end)
