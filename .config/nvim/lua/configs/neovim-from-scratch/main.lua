@@ -21,6 +21,7 @@ vim.opt.runtimepath:prepend(lazypath)
 require("configs.neovim-from-scratch.keymaps")
 require("configs.neovim-from-scratch.options")
 require("configs.neovim-from-scratch.autocmds")
+require("configs.neovim-from-scratch.diagnostics")
 
 -- Setup lazy.nvim
 require("lazy").setup({
