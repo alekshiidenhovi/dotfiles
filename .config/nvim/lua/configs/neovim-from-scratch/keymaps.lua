@@ -79,21 +79,7 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
-vim.keymap.set("n", "<leader>ts", function()
-  vim.cmd.vnew()
-  vim.cmd.term()
-  vim.cmd.wincmd("J")
-  vim.api.nvim_win_set_height(0, 10)
+vim.keymap.set({ "n", "t" }, "<leader>tb", "<cmd>ToggleTerminal bottom<CR>", { desc = "Toggle bottom terminal" })
+vim.keymap.set({ "n", "t" }, "<leader>tf", "<cmd>ToggleTerminal floating<CR>", { desc = "Toggle floating terminal" })
 
-  Channel_id = vim.b.terminal_job_id
-end)
-
-vim.keymap.set("n", "<leader>tla", function()
-  if Channel_id then
-    vim.fn.chansend(Channel_id, "la\n")
-  else
-    print("No terminal channel active")
-  end
-end)
-
-vim.keymap.set("t", "<leader>e", "<C-\\><C-n>")
+vim.keymap.set("t", "<ESC><ESC>", "<C-\\><C-n>")
