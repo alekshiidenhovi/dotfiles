@@ -28,5 +28,7 @@ require("lazy").setup({
   spec = {
     { import = "plugins.lazy" }
   },
-  checker = { enabled = true }
+  checker = { enabled = true },
 })
+
+vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", { silent = true, desc = "Lazy" })
