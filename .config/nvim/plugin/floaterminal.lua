@@ -2,6 +2,7 @@ local state = {
   terminal = {
     buf = -1,
     win = -1,
+    mode = "",
   }
 }
 
@@ -42,32 +43,50 @@ local function create_floating_terminal_config()
 end
 
 local function toggle_terminal(mode)
+  local win_config = nil
+  if mode == "floating" then
+    win_config = create_floating_terminal_config()
+  elseif mode == "bottom" then
+    win_config = create_bottom_terminal_config()
+  else
+    print("Invalid terminal mode: " .. mode)
+    return
+  end
+
+  local buf = state.terminal.buf
+  if not vim.api.nvim_buf_is_valid(buf) then
+    buf = vim.api.nvim_create_buf(false, true)
+  end
+
+  -- Window closed --> open window in the specified mode
   if not vim.api.nvim_win_is_valid(state.terminal.win) then
-    local buf = state.terminal.buf
-    if not vim.api.nvim_buf_is_valid(buf) then
-      buf = vim.api.nvim_create_buf(false, true)
-    end
-
-    local win_config = nil
-    if mode == "floating" then
-      win_config = create_floating_terminal_config()
-    elseif mode == "bottom" then
-      win_config = create_bottom_terminal_config()
-    else
-      print("Invalid terminal mode: " .. mode)
-      return
-    end
-
     local win = vim.api.nvim_open_win(buf, true, win_config)
     if vim.bo[buf].buftype ~= "terminal" then
       vim.cmd.terminal()
     end
 
-    state.terminal = { win = win, buf = buf }
-    vim.cmd("normal i")
-  else
-    vim.api.nvim_win_hide(state.terminal.win)
+    state.terminal = {
+      win = win,
+      buf = buf,
+      mode = mode,
+    }
+    vim.cmd("startinsert")
+    return
   end
+
+  -- Window open with equal mode --> close terminal
+  if mode == state.terminal.mode then
+    vim.api.nvim_win_hide(state.terminal.win)
+    state.terminal = { win = -1, buf = state.terminal.buf, mode = "", }
+    return
+  end
+
+  -- Window open with different mode --> switch terminal
+  vim.api.nvim_win_close(state.terminal.win, true)
+  local win = vim.api.nvim_open_win(buf, true, win_config)
+  state.terminal.win = win
+  state.terminal.mode = mode
+  vim.cmd("startinsert")
 end
 
 vim.api.nvim_create_user_command("ToggleTerminal", function(opts)
