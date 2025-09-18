@@ -35,12 +35,6 @@ return {
       keymap('n', '<leader>lr', builtin.lsp_references, { desc = 'Telescope LSP references' })
       keymap('n', '<leader>li', builtin.lsp_implementations, { desc = 'Telescope LSP implementations' })
       keymap('n', '<leader>ld', builtin.lsp_definitions, { desc = 'Telescope LSP definitions' })
-
-      keymap("n", "<leader>fc", function()
-        builtin.find_files {
-          cwd = vim.fn.stdpath("config")
-        }
-      end)
     end
   }
 }
