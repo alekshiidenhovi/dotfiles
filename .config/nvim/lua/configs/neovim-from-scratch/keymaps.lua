@@ -1,12 +1,7 @@
-local opts = { noremap = true, silent = true }
-
-local term_opts = { silent = true }
-
--- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 --Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
+keymap("", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
@@ -20,66 +15,59 @@ vim.g.maplocalleader = "\\"
 
 -- Normal --
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-h>", "<C-w>h", { silent = true, desc = "Move to window left" })
+keymap("n", "<C-j>", "<C-w>j", { silent = true, desc = "Move to window below" })
+keymap("n", "<C-k>", "<C-w>k", { silent = true, desc = "Move to window above" })
+keymap("n", "<C-l>", "<C-w>l", { silent = true, desc = "Move to window right" })
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", opts)
-keymap("n", "<C-Down>", ":resize -2<CR>", opts)
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
+keymap("n", "<C-Up>", ":resize +2<CR>", { silent = true, desc = "Resize upwards" })
+keymap("n", "<C-Down>", ":resize -2<CR>", { silent = true, desc = "Resize downwards" })
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true, desc = "Resize leftwards" })
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true, desc = "Resize rightwards" })
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap("n", "<S-l>", ":bnext<CR>", { silent = true, desc = "Switch to next buffer" })
+keymap("n", "<S-h>", ":bprevious<CR>", { silent = true, desc = "Switch to previous buffer" })
 
 -- Insert --
-keymap("i", "kj", "<ESC>", opts)
-keymap("i", "jk", "<ESC>", opts)
+keymap("i", "kj", "<ESC>", { silent = true, desc = "Switch to normal mode" })
+keymap("i", "jk", "<ESC>", { silent = true, desc = "Switch to normal mode" })
 
 -- Execute --
-vim.keymap.set("n", "<leader><leader>x", "<cmd>source %<CR>")
-vim.keymap.set("n", "<leader>x", ":.lua<CR>")
-vim.keymap.set("v", "<leader>x", ":lua<CR>")
+keymap("n", "<leader>xf", "<cmd>source %<CR>", { silent = false, desc = "Source the file" })
+keymap("n", "<leader>xx", ":.lua<CR>", { silent = false, desc = "Execute the line" })
+keymap("v", "<leader>xx", ":lua<CR>", { silent = false, desc = "Execute lines" })
 
--- Quickfix
-vim.keymap.set("n", "<A-j>", "<cmd>cnext<CR>")
-vim.keymap.set("n", "<A-k>", "<cmd>cprev<CR>")
+-- Move lines
+keymap("n", "<A-j>", "<cmd>cnext<CR>", { silent = true, desc = "Move to next quickfix" })
+keymap("n", "<A-k>", "<cmd>cprev<CR>", { silent = true, desc = "Move to previous quickfix" })
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+keymap("v", "<", "<gv", { silent = true, desc = "Indent left" })
+keymap("v", ">", ">gv", { silent = true, desc = "Indent right" })
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
-keymap("v", "p", '"_dP', opts)
+keymap("v", "<A-j>", ":m .+1<CR>==", { silent = true, desc = "Move line(s) down" })
+keymap("v", "<A-k>", ":m .-2<CR>==", { silent = true, desc = "Move line(s) up" })
+keymap("v", "p", '"_dP', { silent = true, desc = "Replace text" })
 
 -- Oil --
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+keymap("n", "-", "<CMD>Oil<CR>", { silent = true, desc = "Open parent directory" })
 
 -- Neo-tree --
-vim.keymap.set("n", "<leader>e", "<cmd>Neotree action=show toggle=true<CR>", opts)
-
-
--- Visual Block --
--- Move text up and down
-keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
+keymap("n", "<leader>e", "<cmd>Neotree action=show toggle=true<CR>", { silent = true, desc = "File-tree Explorer" })
 
 -- Terminal --
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true, desc = "Move to window left" })
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true, desc = "Move to window below" })
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, desc = "Move to window above" })
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, desc = "Move to window right" })
 
-vim.keymap.set({ "n", "t" }, "<leader>tb", "<cmd>ToggleTerminal bottom<CR>", { desc = "Toggle bottom terminal" })
-vim.keymap.set({ "n", "t" }, "<leader>tf", "<cmd>ToggleTerminal floating<CR>", { desc = "Toggle floating terminal" })
+keymap({ "n", "t" }, "<leader>tb", "<cmd>ToggleTerminal bottom<CR>", { silent = false, desc = "Toggle bottom terminal" })
+keymap({ "n", "t" }, "<leader>tf", "<cmd>ToggleTerminal floating<CR>",
+  { silent = false, desc = "Toggle floating terminal" })
 
-vim.keymap.set("t", "<ESC><ESC>", "<C-\\><C-n>")
+keymap("t", "<ESC><ESC>", "<C-\\><C-n>", { silent = true, desc = "Enter normal mode" })
