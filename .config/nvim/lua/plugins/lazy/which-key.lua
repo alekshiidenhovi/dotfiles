@@ -5,6 +5,8 @@ return {
     opts = {
       spec = {
         { "<leader>t", group = "terminal" },
+        { "<leader>x", group = "execute" },
+        { "<leader>f", group = "find" },
       }
     },
     keys = {
