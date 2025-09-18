@@ -49,15 +49,9 @@ keymap("v", "<", "<gv", { silent = true, desc = "Indent left" })
 keymap("v", ">", ">gv", { silent = true, desc = "Indent right" })
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", { silent = true, desc = "Move line(s) down" })
-keymap("v", "<A-k>", ":m .-2<CR>==", { silent = true, desc = "Move line(s) up" })
+keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move line(s) down" })
+keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move line(s) up" })
 keymap("v", "p", '"_dP', { silent = true, desc = "Replace text" })
-
--- Oil --
-keymap("n", "-", "<CMD>Oil<CR>", { silent = true, desc = "Open parent directory" })
-
--- Neo-tree --
-keymap("n", "<leader>e", "<cmd>Neotree action=show toggle=true<CR>", { silent = true, desc = "File-tree Explorer" })
 
 -- Terminal --
 -- Better terminal navigation

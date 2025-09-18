@@ -4,9 +4,11 @@ return {
     event = "VeryLazy",
     opts = {
       spec = {
-        { "<leader>t", group = "terminal" },
+        { "<leader>t", group = "terminal", icon = "" },
         { "<leader>x", group = "execute" },
         { "<leader>f", group = "find" },
+        { "<leader>g", group = "git" },
+        { "<leader>l", group = "lsp" },
       }
     },
     keys = {

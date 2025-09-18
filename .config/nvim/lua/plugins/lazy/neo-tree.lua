@@ -14,6 +14,9 @@ return {
       enable_git_status = true,
       enable_diagnostics = true,
       close_if_last_window = true,
-    }
+    },
+    keys = {
+      { "<leader>e", "<cmd>Neotree action=show toggle=true<CR>", desc = "File-tree Explorer", mode = "n" }
+    },
   }
 }
