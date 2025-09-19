@@ -1,4 +1,5 @@
 # Git shortcuts
+alias lg='lazygit'
 alias gst='git status'
 alias gp='git push'
 alias gpf='git push --force-with-lease'
