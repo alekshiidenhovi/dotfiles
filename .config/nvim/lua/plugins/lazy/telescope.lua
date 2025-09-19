@@ -10,8 +10,14 @@ return {
       require("telescope").setup {
         pickers = {
           find_files = {
-            theme = "ivy"
-          }
+            file_ignore_patterns = { "node_modules", ".git", ".venv" },
+            theme = "ivy",
+            hidden = true
+          },
+          live_grep = {
+            file_ignore_patterns = { "node_modules", ".git", ".venv" },
+            additional_args = function() return { "--hidden" } end
+          },
         },
         extensions = {
           fzf = {}
