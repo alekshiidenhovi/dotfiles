@@ -27,10 +27,7 @@ return {
       for server, config in pairs(opts.servers) do
         config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
         if server == "clangd" then
-          config.cmd = {'clangd', '--background-index', '--clang-tidy', '--log=verbose'}
-          config.init_options = {
-            fallbackFlags = { "-std=c++17" },
-          }
+          config.cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose' }
         end
         lspconfig[server].setup(config)
       end
