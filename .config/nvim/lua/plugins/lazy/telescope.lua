@@ -28,8 +28,14 @@ return {
       local builtin = require('telescope.builtin')
       local keymap = vim.keymap.set
 
-      keymap('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-      keymap('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+      keymap('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files (cwd)' })
+      keymap('n', '<leader>fF', function() builtin.find_files { cwd = "~/repos" } end,
+        { desc = 'Telescope find files (repos)' })
+
+      keymap('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep (cwd)' })
+      keymap('n', '<leader>fG', function() builtin.live_grep { cwd = "~/repos" } end,
+        { desc = 'Telescope live grep (repos)' })
+
       keymap('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
       keymap('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
       keymap('n', '<leader>fm', builtin.man_pages, { desc = 'Telescope manual pages' })
