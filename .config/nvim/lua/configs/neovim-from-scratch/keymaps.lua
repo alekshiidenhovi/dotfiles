@@ -39,9 +39,11 @@ keymap("n", "<leader>xf", "<cmd>source %<CR>", { silent = false, desc = "Source 
 keymap("n", "<leader>xx", ":.lua<CR>", { silent = false, desc = "Execute the line" })
 keymap("v", "<leader>xx", ":lua<CR>", { silent = false, desc = "Execute lines" })
 
--- Move lines
+-- Quickfix
 keymap("n", "<A-j>", "<cmd>cnext<CR>", { silent = true, desc = "Move to next quickfix" })
 keymap("n", "<A-k>", "<cmd>cprev<CR>", { silent = true, desc = "Move to previous quickfix" })
+keymap("n", "<leader>q", function() vim.diagnostic.setqflist({ open = true }) end,
+  { silent = true, desc = "Add diagnostics to quickfix" })
 
 -- Visual --
 -- Stay in indent mode
