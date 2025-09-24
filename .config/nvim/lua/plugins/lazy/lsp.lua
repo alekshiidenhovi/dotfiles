@@ -19,6 +19,7 @@ return {
       servers = {
         lua_ls = {},
         clangd = {},
+        cmake = {},
       }
     },
     config = function(_, opts)
