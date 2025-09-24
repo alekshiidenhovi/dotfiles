@@ -55,6 +55,10 @@ keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move line(s) d
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move line(s) up" })
 keymap("v", "p", '"_dP', { silent = true, desc = "Replace text" })
 
+-- Fast write and quit
+keymap("n", "<leader>Q", "<cmd>:q<CR>", { silent = false, desc = "Quit" })
+keymap("n", "<leader>W", "<cmd>:w<CR>", { silent = false, desc = "Write" })
+
 -- Terminal --
 -- Better terminal navigation
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true, desc = "Move to window left" })
