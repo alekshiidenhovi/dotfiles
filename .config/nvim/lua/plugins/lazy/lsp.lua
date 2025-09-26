@@ -28,7 +28,14 @@ return {
       for server, config in pairs(opts.servers) do
         config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
         if server == "clangd" then
-          config.cmd = { 'clangd', '--background-index', '--clang-tidy', '--log=verbose' }
+          config.cmd = {
+            "clangd",
+            "--background-index",
+            "--clang-tidy",
+            "--enable-config", -- make clangd read your .clangd file
+            "--completion-style=detailed",
+            "--all-scopes-completion",
+          }
         end
         lspconfig[server].setup(config)
       end
