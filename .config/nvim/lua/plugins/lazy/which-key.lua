@@ -9,6 +9,8 @@ return {
         { "<leader>f", group = "find", icon = "󰈞" },
         { "<leader>g", group = "git", icon = "" },
         { "<leader>l", group = "lsp", icon = "" },
+        { "<leader>s", group = "supermaven", icon = "" },
+
       }
     },
     keys = {
