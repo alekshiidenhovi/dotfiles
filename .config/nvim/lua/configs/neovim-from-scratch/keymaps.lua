@@ -66,8 +66,5 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true, desc = "Move to windo
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, desc = "Move to window above" })
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, desc = "Move to window right" })
 
--- keymap({ "n", "t" }, "<leader>tb", "<cmd>ToggleTerminal bottom<CR>", { silent = false, desc = "Toggle bottom terminal" })
--- keymap({ "n", "t" }, "<leader>tf", "<cmd>ToggleTerminal floating<CR>",
---   { silent = false, desc = "Toggle floating terminal" })
 
 keymap("t", "<ESC><ESC>", "<C-\\><C-n>", { silent = true, desc = "Enter normal mode" })
