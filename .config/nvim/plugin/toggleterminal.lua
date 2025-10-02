@@ -89,11 +89,11 @@ local function toggle_terminal(mode)
   vim.cmd("startinsert")
 end
 
-vim.api.nvim_create_user_command("ToggleTerminal", function(opts)
-  local default_mode = "bottom"
-  if opts.args then
-    toggle_terminal(opts.args)
-  else
-    toggle_terminal(default_mode)
-  end
-end, { nargs = "?" })
+-- vim.api.nvim_create_user_command("ToggleTerminal", function(opts)
+--   local default_mode = "bottom"
+--   if opts.args then
+--     toggle_terminal(opts.args)
+--   else
+--     toggle_terminal(default_mode)
+--   end
+-- end, { nargs = "?" })
