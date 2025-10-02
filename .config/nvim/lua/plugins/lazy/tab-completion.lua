@@ -21,7 +21,13 @@ return {
           vim.notify("Supermaven started")
         end
       end, { desc = "Toggle Supermaven" })
-      keymap("n", "<leader>si", api.is_running, { desc = "Return Supermaven running status" })
+      keymap("n", "<leader>si", function()
+        if api.is_running() then
+          vim.notify("Supermaven is running")
+        else
+          vim.notify("Supermaven is not running")
+        end
+      end, { desc = "Return Supermaven running status" })
       keymap("n", "<leader>sl", api.show_log, { desc = "Show Supermaven logs" })
       keymap("n", "<leader>sc", api.clear_log, { desc = "Clear Supermaven logs" })
     end,
