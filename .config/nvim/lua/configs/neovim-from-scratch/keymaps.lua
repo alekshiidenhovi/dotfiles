@@ -1,5 +1,6 @@
 local keymap = vim.keymap.set
 
+
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", { silent = true })
 vim.g.mapleader = " "
@@ -42,7 +43,7 @@ keymap("v", "<leader>xx", ":lua<CR>", { silent = false, desc = "Execute lines" }
 -- Quickfix
 keymap("n", "<A-j>", "<cmd>cnext<CR>", { silent = true, desc = "Move to next quickfix" })
 keymap("n", "<A-k>", "<cmd>cprev<CR>", { silent = true, desc = "Move to previous quickfix" })
-keymap("n", "<leader>q", function() vim.diagnostic.setqflist({ open = true }) end,
+keymap("n", "<leader>Q", function() vim.diagnostic.setqflist({ open = true }) end,
   { silent = true, desc = "Add diagnostics to quickfix" })
 
 -- Visual --
