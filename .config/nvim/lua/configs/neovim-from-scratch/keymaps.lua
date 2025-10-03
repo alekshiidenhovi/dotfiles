@@ -55,8 +55,7 @@ keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move line(s) d
 keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move line(s) up" })
 keymap("v", "p", '"_dP', { silent = true, desc = "Replace text" })
 
--- Fast write and quit
-keymap("n", "<leader>Q", "<cmd>:q<CR>", { silent = false, desc = "Quit" })
+-- Fast write
 keymap("n", "<leader>W", "<cmd>:w<CR>", { silent = false, desc = "Write" })
 
 -- Terminal --
