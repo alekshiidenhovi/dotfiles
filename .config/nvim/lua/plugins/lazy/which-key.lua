@@ -3,6 +3,7 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
+      preset = "helix",
       spec = {
         { "<leader>t", group = "terminal", icon = "" },
         { "<leader>x", group = "execute", icon = "" },
