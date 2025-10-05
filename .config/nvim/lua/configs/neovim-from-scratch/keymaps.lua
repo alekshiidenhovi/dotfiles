@@ -65,5 +65,4 @@ keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true, desc = "Move to windo
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, desc = "Move to window above" })
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, desc = "Move to window right" })
 
-
-keymap("t", "jk", "<C-\\><C-n>", { silent = true, desc = "Enter normal mode" })
+keymap("t", "<leader><ESC>", "<C-\\><C-n>", { silent = true, desc = "Enter normal mode" })
