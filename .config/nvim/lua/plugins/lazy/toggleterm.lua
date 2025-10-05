@@ -32,7 +32,7 @@ return {
 
       -- Regular terminals
       keymap({ "n", "t" }, "<leader>tt", "<cmd>ToggleTermToggleAll<CR>", { silent = true, desc = "Toggle all terminals" })
-      keymap({ "n", "t" }, "<leader>tn", "<cmd>TermNew direction=horizontal<CR>",
+      keymap({ "n", "t" }, "<leader>tn", "<cmd>TermNew direction=vertical size=50<CR>",
         { silent = true, desc = "Add new terminal" })
       keymap({ "n", "t" }, "<leader>ts", "<cmd>TermSelect<CR>", { silent = true, desc = "Select terminal" })
       keymap({ "n", "t" }, "<leader>td", function()
