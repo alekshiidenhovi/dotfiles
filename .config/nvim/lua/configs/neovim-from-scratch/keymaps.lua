@@ -32,7 +32,6 @@ keymap("n", "<S-l>", ":bnext<CR>", { silent = true, desc = "Switch to next buffe
 keymap("n", "<S-h>", ":bprevious<CR>", { silent = true, desc = "Switch to previous buffer" })
 
 -- Insert --
-keymap("i", "kj", "<ESC>", { silent = true, desc = "Switch to normal mode" })
 keymap("i", "jk", "<ESC>", { silent = true, desc = "Switch to normal mode" })
 
 -- Execute --
@@ -67,4 +66,4 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, desc = "Move to windo
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, desc = "Move to window right" })
 
 
-keymap("t", "<ESC><ESC>", "<C-\\><C-n>", { silent = true, desc = "Enter normal mode" })
+keymap("t", "jk", "<C-\\><C-n>", { silent = true, desc = "Enter normal mode" })
