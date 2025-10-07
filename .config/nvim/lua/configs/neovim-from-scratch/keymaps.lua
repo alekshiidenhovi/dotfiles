@@ -33,6 +33,8 @@ keymap("n", "<S-h>", ":bprevious<CR>", { silent = true, desc = "Switch to previo
 
 -- Insert --
 keymap("i", "jk", "<ESC>", { silent = true, desc = "Switch to normal mode" })
+keymap("i", "<A-BS>", "<C-w>", { silent = true, desc = "Delete word before cursor" })
+
 
 -- Execute --
 keymap("n", "<leader>xf", "<cmd>source %<CR>", { silent = false, desc = "Source the file" })
