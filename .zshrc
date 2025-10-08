@@ -4,6 +4,14 @@ if [ -f ~/.zshrc.local ]; then
 fi
 
 export EDITOR="nvim"
+export CC=$HOMEBREW_PREFIX/opt/llvm/bin/clang
+export CXX=$HOMEBREW_PREFIX/opt/llvm/bin/clang++
+export PATH="$HOMEBREW_PREFIX/opt/llvm/bin:$PATH"
+
+export SDKROOT=$(xcrun --show-sdk-path)
+export LDFLAGS="-L$HOMEBREW_PREFIX/opt/llvm/lib/c++ -L$HOMEBREW_PREFIX/opt/llvm/lib/unwind -lunwind"
+export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/llvm/include -isysroot $SDKROOT"
+export CMAKE_PREFIX_PATH="$HOMEBREW_PREFIX/opt/llvm"
 
 # Init prompt
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
