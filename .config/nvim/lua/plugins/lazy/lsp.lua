@@ -24,7 +24,6 @@ return {
     },
     config = function(_, opts)
       -- Link capabilities between LSP and blink.cmp
-      local lspconfig = require("lspconfig")
       for server, config in pairs(opts.servers) do
         config.capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities)
         if server == "clangd" then
@@ -37,8 +36,10 @@ return {
             "--all-scopes-completion",
           }
         end
-        lspconfig[server].setup(config)
+        vim.lsp.config(server, config)
       end
+
+      vim.lsp.enable(vim.tbl_keys(opts.servers))
 
       -- Setup autoformatting on save
       vim.api.nvim_create_autocmd('LspAttach', {
