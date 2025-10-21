@@ -16,57 +16,57 @@ vim.g.maplocalleader = "\\"
 
 -- Normal --
 -- Better window management
-keymap("n", "<C-h>", "<C-w>h", { silent = true, desc = "Move to window left" })
-keymap("n", "<C-j>", "<C-w>j", { silent = true, desc = "Move to window below" })
-keymap("n", "<C-k>", "<C-w>k", { silent = true, desc = "Move to window above" })
-keymap("n", "<C-l>", "<C-w>l", { silent = true, desc = "Move to window right" })
-keymap("n", "<leader>|", "<C-w>v", { silent = true, desc = "Split window to right" })
-keymap("n", "<leader>-", "<C-w>s", { silent = true, desc = "Split window to bottom" })
+keymap("n", "<C-h>", "<C-w>h", { silent = true, desc = "Move To Window Left" })
+keymap("n", "<C-j>", "<C-w>j", { silent = true, desc = "Move To Window Below" })
+keymap("n", "<C-k>", "<C-w>k", { silent = true, desc = "Move To Window Above" })
+keymap("n", "<C-l>", "<C-w>l", { silent = true, desc = "Move To Window Right" })
+keymap("n", "<leader>|", "<C-w>v", { silent = true, desc = "Split Window Right" })
+keymap("n", "<leader>-", "<C-w>s", { silent = true, desc = "Split Window Bottom" })
 
 -- Resize with arrows
-keymap("n", "<C-Up>", ":resize +2<CR>", { silent = true, desc = "Resize upwards" })
-keymap("n", "<C-Down>", ":resize -2<CR>", { silent = true, desc = "Resize downwards" })
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true, desc = "Resize leftwards" })
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true, desc = "Resize rightwards" })
+keymap("n", "<C-Up>", ":resize +2<CR>", { silent = true, desc = "Resize Upwards" })
+keymap("n", "<C-Down>", ":resize -2<CR>", { silent = true, desc = "Resize Downwards" })
+keymap("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true, desc = "Resize Leftwards" })
+keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true, desc = "Resize Rightwards" })
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", { silent = true, desc = "Switch to next buffer" })
-keymap("n", "<S-h>", ":bprevious<CR>", { silent = true, desc = "Switch to previous buffer" })
+keymap("n", "<S-l>", ":bnext<CR>", { silent = true, desc = "Next Buffer" })
+keymap("n", "<S-h>", ":bprevious<CR>", { silent = true, desc = "Previous Buffer" })
 
 -- Insert --
-keymap("i", "jk", "<ESC>", { silent = true, desc = "Switch to normal mode" })
-keymap("i", "<A-BS>", "<C-w>", { silent = true, desc = "Delete word before cursor" })
+keymap("i", "jk", "<ESC>", { silent = true, desc = "Switch To Normal Mode" })
+keymap("i", "<A-BS>", "<C-w>", { silent = true, desc = "Delete Word Before Cursor" })
 
 
 -- Execute --
-keymap("n", "<leader>xf", "<cmd>source %<CR>", { silent = false, desc = "Source the file" })
-keymap("n", "<leader>xx", ":.lua<CR>", { silent = false, desc = "Execute the line" })
-keymap("v", "<leader>xx", ":lua<CR>", { silent = false, desc = "Execute lines" })
+keymap("n", "<leader>xf", "<cmd>source %<CR>", { silent = false, desc = "Source The File" })
+keymap("n", "<leader>xx", ":.lua<CR>", { silent = false, desc = "Execute The Line" })
+keymap("v", "<leader>xx", ":lua<CR>", { silent = false, desc = "Execute Lines" })
 
 -- Quickfix
-keymap("n", "<A-j>", "<cmd>cnext<CR>", { silent = true, desc = "Move to next quickfix" })
-keymap("n", "<A-k>", "<cmd>cprev<CR>", { silent = true, desc = "Move to previous quickfix" })
+keymap("n", "<A-j>", "<cmd>cnext<CR>", { silent = true, desc = "Next Quickfix" })
+keymap("n", "<A-k>", "<cmd>cprev<CR>", { silent = true, desc = "Previous Quickfix" })
 keymap("n", "<leader>Q", function() vim.diagnostic.setqflist({ open = true }) end,
-  { silent = true, desc = "Add diagnostics to quickfix" })
+  { silent = true, desc = "Quickfix" })
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "<", "<gv", { silent = true, desc = "Indent left" })
-keymap("v", ">", ">gv", { silent = true, desc = "Indent right" })
+keymap("v", "<", "<gv", { silent = true, desc = "Indent Left" })
+keymap("v", ">", ">gv", { silent = true, desc = "Indent Right" })
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move line(s) down" })
-keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move line(s) up" })
-keymap("v", "p", '"_dP', { silent = true, desc = "Replace text" })
+keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Line(s) Down" })
+keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Line(s) Up" })
+keymap("v", "p", '"_dP', { silent = true, desc = "Replace Text" })
 
 -- Fast write
-keymap("n", "<leader>W", "<cmd>:w<CR>", { silent = false, desc = "Write" })
+keymap("n", "<leader>W", "<cmd>:w<CR>", { silent = false, desc = "Save File" })
 
 -- Terminal --
 -- Better terminal navigation
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true, desc = "Move to window left" })
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true, desc = "Move to window below" })
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, desc = "Move to window above" })
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, desc = "Move to window right" })
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", { silent = true, desc = "Move To Window Left" })
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", { silent = true, desc = "Move To Window Below" })
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, desc = "Move To Window Above" })
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, desc = "Move To Window Right" })
 
-keymap("t", "<leader><ESC>", "<C-\\><C-n>", { silent = true, desc = "Enter normal mode" })
+keymap("t", "<leader><ESC>", "<C-\\><C-n>", { silent = true, desc = "Enter Normal Mode" })

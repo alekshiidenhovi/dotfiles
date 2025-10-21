@@ -28,25 +28,25 @@ return {
       local builtin = require('telescope.builtin')
       local keymap = vim.keymap.set
 
-      keymap('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files (cwd)' })
+      keymap('n', '<leader>ff', builtin.find_files, { desc = 'Telescope Find Files (cwd)' })
       keymap('n', '<leader>fF', function() builtin.find_files { cwd = "~/repos" } end,
-        { desc = 'Telescope find files (repos)' })
+        { desc = 'Telescope Find Files (repos)' })
 
-      keymap('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep (cwd)' })
+      keymap('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope Live Grep (cwd)' })
       keymap('n', '<leader>fG', function() builtin.live_grep { cwd = "~/repos" } end,
-        { desc = 'Telescope live grep (repos)' })
+        { desc = 'Telescope Live Grep (repos)' })
 
-      keymap('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-      keymap('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-      keymap('n', '<leader>fm', builtin.man_pages, { desc = 'Telescope manual pages' })
+      keymap('n', '<leader>fb', builtin.buffers, { desc = 'Telescope Buffers' })
+      keymap('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope Help Tags' })
+      keymap('n', '<leader>fm', builtin.man_pages, { desc = 'Telescope Manual Pages' })
 
-      keymap('n', '<leader>gc', builtin.git_commits, { desc = 'Telescope git commits' })
-      keymap('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope git branches' })
-      keymap('n', '<leader>gs', builtin.git_status, { desc = 'Telescope git statuses' })
+      keymap('n', '<leader>gc', builtin.git_commits, { desc = 'Telescope Git Commits' })
+      keymap('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope Git Branches' })
+      keymap('n', '<leader>gs', builtin.git_status, { desc = 'Telescope Git Statuses' })
 
-      keymap('n', '<leader>lr', builtin.lsp_references, { desc = 'Telescope LSP references' })
-      keymap('n', '<leader>li', builtin.lsp_implementations, { desc = 'Telescope LSP implementations' })
-      keymap('n', '<leader>ld', builtin.lsp_definitions, { desc = 'Telescope LSP definitions' })
+      keymap('n', '<leader>lr', builtin.lsp_references, { desc = 'Telescope LSP References' })
+      keymap('n', '<leader>li', builtin.lsp_implementations, { desc = 'Telescope LSP Implementations' })
+      keymap('n', '<leader>ld', builtin.lsp_definitions, { desc = 'Telescope LSP Definitions' })
     end
   }
 }

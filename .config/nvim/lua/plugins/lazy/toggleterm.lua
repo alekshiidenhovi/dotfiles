@@ -31,10 +31,10 @@ return {
       })
 
       -- Regular terminals
-      keymap({ "n", "t" }, "<leader>tt", "<cmd>ToggleTermToggleAll<CR>", { silent = true, desc = "Toggle all terminals" })
+      keymap({ "n", "t" }, "<leader>tt", "<cmd>ToggleTermToggleAll<CR>", { silent = true, desc = "Toggle All Terminals" })
       keymap({ "n", "t" }, "<leader>tn", "<cmd>TermNew direction=vertical size=50<CR>",
-        { silent = true, desc = "Add new terminal" })
-      keymap({ "n", "t" }, "<leader>ts", "<cmd>TermSelect<CR>", { silent = true, desc = "Select terminal" })
+        { silent = true, desc = "New Terminal" })
+      keymap({ "n", "t" }, "<leader>ts", "<cmd>TermSelect<CR>", { silent = true, desc = "Select Terminal" })
       keymap({ "n", "t" }, "<leader>td", function()
         local toggleterminal = require("toggleterm.terminal")
         local focusedTerminalId = toggleterminal.get_focused_id()
@@ -53,12 +53,12 @@ return {
         else
           vim.notify("Could not find the terminal object", vim.log.levels.ERROR)
         end
-      end, { silent = true, desc = "Close the current terminal" })
+      end, { silent = true, desc = "Close Terminal" })
 
       -- Lazygit termina
       keymap({ "n", "t" }, "<leader>tl", function()
         lazygit:toggle()
-      end, { silent = true, desc = "Toggle Lazygit" })
+      end, { silent = true, desc = "Lazygit" })
     end
   }
 }
