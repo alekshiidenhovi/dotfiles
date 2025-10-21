@@ -15,11 +15,13 @@ vim.g.maplocalleader = "\\"
 --   command_mode = "c",
 
 -- Normal --
--- Better window navigation
+-- Better window management
 keymap("n", "<C-h>", "<C-w>h", { silent = true, desc = "Move to window left" })
 keymap("n", "<C-j>", "<C-w>j", { silent = true, desc = "Move to window below" })
 keymap("n", "<C-k>", "<C-w>k", { silent = true, desc = "Move to window above" })
 keymap("n", "<C-l>", "<C-w>l", { silent = true, desc = "Move to window right" })
+keymap("n", "<leader>|", "<C-w>v", { silent = true, desc = "Split window to right" })
+keymap("n", "<leader>-", "<C-w>s", { silent = true, desc = "Split window to bottom" })
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", { silent = true, desc = "Resize upwards" })
