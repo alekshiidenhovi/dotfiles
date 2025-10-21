@@ -1,6 +1,6 @@
 local options = {
   backup = false,                                   -- Enables backup files
-  clipboard = "unnamedplus",                        -- Integrate to system clipboard
+  clipboard = "",                                   -- Defines integrations with system clipboard
   cmdheight = 2,                                    -- Height of the command line prompt
   completeopt = { "menuone", "noselect", "fuzzy" }, -- Completion options
   conceallevel = 0,                                 -- Defines how text is concealed
