@@ -31,11 +31,10 @@ return {
       })
 
       -- Regular terminals
-      keymap({ "n", "t" }, "<leader>tt", "<cmd>ToggleTermToggleAll<CR>", { silent = true, desc = "Toggle All Terminals" })
-      keymap({ "n", "t" }, "<leader>tn", "<cmd>TermNew direction=vertical size=80<CR>",
+      keymap({ "n", "t" }, "<C-t><C-t>", "<cmd>ToggleTermToggleAll<CR>", { silent = true, desc = "Toggle All Terminals" })
+      keymap({ "n", "t" }, "<C-t><C-n>", "<cmd>TermNew direction=vertical size=80<CR>",
         { silent = true, desc = "New Terminal" })
-      keymap({ "n", "t" }, "<leader>ts", "<cmd>TermSelect<CR>", { silent = true, desc = "Select Terminal" })
-      keymap({ "n", "t" }, "<leader>td", function()
+      keymap({ "n", "t" }, "<C-t><C-d>", function()
         local toggleterminal = require("toggleterm.terminal")
         local focusedTerminalId = toggleterminal.get_focused_id()
 
@@ -56,7 +55,7 @@ return {
       end, { silent = true, desc = "Close Terminal" })
 
       -- Lazygit termina
-      keymap({ "n", "t" }, "<leader>tl", function()
+      keymap({ "n", "t" }, "<C-t><C-l>", function()
         lazygit:toggle()
       end, { silent = true, desc = "Lazygit" })
     end

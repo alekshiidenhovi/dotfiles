@@ -5,7 +5,7 @@ return {
     opts = {
       preset = "helix",
       spec = {
-        { "<leader>t", group = "terminal", icon = "" },
+        { "<C-t>", group = "terminal", icon = "" },
         { "<leader>x", group = "execute", icon = "" },
         { "<leader>f", group = "find", icon = "󰈞" },
         { "<leader>g", group = "git", icon = "" },
