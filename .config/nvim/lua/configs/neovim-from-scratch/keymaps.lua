@@ -60,7 +60,8 @@ keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move Line(s) U
 keymap("v", "p", '"_dP', { silent = true, desc = "Replace Text" })
 
 -- Fast write
-keymap("n", "<leader>W", "<cmd>:w<CR>", { silent = false, desc = "Save File" })
+keymap("n", "<leader>w", "<cmd>:w<CR>", { silent = false, desc = "Save File" })
+keymap("n", "<leader>q", "<cmd>:q<CR>", { silent = false, desc = "Quit File" })
 
 -- Terminal --
 -- Better terminal navigation
