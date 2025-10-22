@@ -1,3 +1,4 @@
+local dimEnabled = false
 return {
   {
     "folke/snacks.nvim",
@@ -25,11 +26,23 @@ return {
         },
         statuscolumn = {
           enabled = true
+        },
+        dim = {
+          enabled = true,
         }
       }
       require("snacks").setup(opts)
       local keymap = vim.keymap.set
-      keymap("n", "<leader>z", function() Snacks.zen() end, { silent = true, desc = "Zen Mode" })
+      keymap("n", "<leader>Z", function() Snacks.zen() end, { silent = true, desc = "Zen Mode Zoomed" })
+      keymap("n", "<leader>z", function()
+        if dimEnabled then
+          Snacks.dim.disable()
+          dimEnabled = false
+        else
+          Snacks.dim.enable()
+          dimEnabled = true
+        end
+      end, { silent = true, desc = "Zen Mode" })
 
       keymap("n", "<leader>bc", function() Snacks.bufdelete.delete() end,
         { silent = true, desc = "Delete current buffer" })
