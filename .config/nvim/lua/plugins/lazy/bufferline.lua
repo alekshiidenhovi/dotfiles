@@ -31,6 +31,15 @@ return {
               return path_a < path_b
             end
           end,
+          offsets = {
+            {
+              filetype = "neo-tree",
+              text = "File Explorer",
+              separator = true,
+              highlight = "Directory",
+              text_align = "left"
+            }
+          }
         },
       })
 
