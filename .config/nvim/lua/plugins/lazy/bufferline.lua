@@ -65,8 +65,6 @@ return {
       keymap("n", "<leader>b8", ":BufferLineGoToBuffer 8<CR>", { silent = true, desc = "Open Buffer 8" })
       keymap("n", "<leader>b9", ":BufferLineGoToBuffer 9<CR>", { silent = true, desc = "Open Buffer 9" })
       keymap("n", "<leader>b0", ":BufferLineGoToBuffer -1<CR>", { silent = true, desc = "Open Last Buffer" })
-
-      keymap("n", "<leader>bc", ":BufferLineCloseOthers<CR>", { silent = true, desc = "Close Other Buffers" })
     end
 
   }
