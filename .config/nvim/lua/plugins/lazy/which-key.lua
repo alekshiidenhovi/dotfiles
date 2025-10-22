@@ -11,7 +11,9 @@ return {
         { "<leader>g", group = "git", icon = "" },
         { "<leader>l", group = "lsp", icon = "" },
         { "<leader>s", group = "supermaven", icon = "" },
-
+        { "<leader>b", group = "buffer", icon = "󰈔" },
+        { "<leader>z", group = "Zen Mode", icon = "󱅻" },
+        { "<leader>L", group = "Lazy", icon = "󰒲" },
       }
     },
     keys = {
