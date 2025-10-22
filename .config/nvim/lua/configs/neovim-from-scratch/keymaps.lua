@@ -42,7 +42,7 @@ keymap("v", "<leader>xx", ":lua<CR>", { silent = false, desc = "Execute Lines" }
 -- Quickfix
 keymap("n", "<A-j>", "<cmd>cnext<CR>", { silent = true, desc = "Next Quickfix" })
 keymap("n", "<A-k>", "<cmd>cprev<CR>", { silent = true, desc = "Previous Quickfix" })
-keymap("n", "<leader>Q", function() vim.diagnostic.setqflist({ open = true }) end,
+keymap("n", "<leader>q", function() vim.diagnostic.setqflist({ open = true }) end,
   { silent = true, desc = "Quickfix" })
 
 -- Visual --
@@ -58,7 +58,6 @@ keymap("v", "p", '"_dP', { silent = true, desc = "Replace Text" })
 
 -- Fast write
 keymap("n", "<leader>w", "<cmd>:w<CR>", { silent = false, desc = "Save File" })
-keymap("n", "<leader>q", "<cmd>:q<CR>", { silent = false, desc = "Quit File" })
 
 -- Terminal --
 -- Better terminal navigation
