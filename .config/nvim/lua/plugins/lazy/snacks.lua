@@ -22,6 +22,9 @@ return {
         },
         git = {
           enabled = true
+        },
+        statuscolumn = {
+          enabled = true
         }
       }
       require("snacks").setup(opts)
