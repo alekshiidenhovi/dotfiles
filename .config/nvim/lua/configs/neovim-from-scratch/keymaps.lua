@@ -29,10 +29,6 @@ keymap("n", "<C-Down>", ":resize -2<CR>", { silent = true, desc = "Resize Downwa
 keymap("n", "<C-Left>", ":vertical resize -2<CR>", { silent = true, desc = "Resize Leftwards" })
 keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true, desc = "Resize Rightwards" })
 
--- Navigate buffers
-keymap("n", "<S-l>", ":bnext<CR>", { silent = true, desc = "Next Buffer" })
-keymap("n", "<S-h>", ":bprevious<CR>", { silent = true, desc = "Previous Buffer" })
-
 -- Insert --
 keymap("i", "jk", "<ESC>", { silent = true, desc = "Switch To Normal Mode" })
 keymap("i", "<A-BS>", "<C-w>", { silent = true, desc = "Delete Word Before Cursor" })
