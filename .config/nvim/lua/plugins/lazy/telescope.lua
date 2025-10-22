@@ -31,6 +31,8 @@ return {
       keymap('n', '<leader>ff', builtin.find_files, { desc = 'Telescope Find Files (cwd)' })
       keymap('n', '<leader>fF', function() builtin.find_files { cwd = "~/repos" } end,
         { desc = 'Telescope Find Files (repos)' })
+      keymap('n', "<leader>fc", function() builtin.find_files { cwd = "~/repos/dotfiles/.config/nvim" } end,
+        { desc = 'Telescope Find Files (Nvim Config)' })
 
       keymap('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope Live Grep (cwd)' })
       keymap('n', '<leader>fG', function() builtin.live_grep { cwd = "~/repos" } end,
