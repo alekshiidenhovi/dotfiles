@@ -7,7 +7,19 @@ return {
       --@type snacks.Config
       local opts = {
         zen = { enabled = true },
-        bufdelete = { enabled = true },
+        bufdelete = {
+          enabled = true
+        },
+        dashboard = {
+          enabled = true,
+          sections = {
+            { section = "header" },
+            { section = "keys",     gap = 1,            padding = 2 },
+            { section = "projects", title = "Projects", indent = 2, padding = 3 },
+
+            { section = "startup" },
+          }
+        },
       }
       require("snacks").setup(opts)
       local keymap = vim.keymap.set
