@@ -44,7 +44,7 @@ return {
       keymap('n', '<leader>fm', builtin.man_pages, { desc = 'Telescope Manual Pages' })
 
       keymap('n', '<leader>gc', builtin.git_commits, { desc = 'Telescope Git Commits' })
-      keymap('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope Git Branches' })
+      keymap('n', '<leader>gbr', builtin.git_branches, { desc = 'Telescope Git Branches' })
       keymap('n', '<leader>gs', builtin.git_status, { desc = 'Telescope Git Statuses' })
 
       keymap('n', '<leader>lr', builtin.lsp_references, { desc = 'Telescope LSP References' })

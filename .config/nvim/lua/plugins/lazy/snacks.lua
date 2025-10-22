@@ -20,6 +20,9 @@ return {
             { section = "startup" },
           }
         },
+        git = {
+          enabled = true
+        }
       }
       require("snacks").setup(opts)
       local keymap = vim.keymap.set
@@ -31,6 +34,8 @@ return {
         { silent = true, desc = "Force delete current buffer" })
       keymap("n", "<leader>bo", function() Snacks.bufdelete.other() end, { silent = true, desc = "Delete other buffers" })
       keymap("n", "<leader>ba", function() Snacks.bufdelete.all() end, { silent = true, desc = "Delete all buffers" })
+
+      keymap("n", "<leader>gbl", function() Snacks.git.blame_line() end, { silent = true, desc = "Git Blame" })
     end,
   }
 }
