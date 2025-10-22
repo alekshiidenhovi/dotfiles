@@ -35,6 +35,7 @@ return {
       keymap('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope Live Grep (cwd)' })
       keymap('n', '<leader>fG', function() builtin.live_grep { cwd = "~/repos" } end,
         { desc = 'Telescope Live Grep (repos)' })
+      keymap('n', '<leader>fr', builtin.registers, { desc = 'Telescope Registers' })
 
       keymap('n', '<leader>fb', builtin.buffers, { desc = 'Telescope Buffers' })
       keymap('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope Help Tags' })
