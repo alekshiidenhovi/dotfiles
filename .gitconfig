@@ -1,3 +1,5 @@
 [user]
 name = Aleks Hiidenhovi
 email = hiidenhovi.aleks@gmail.com
+[core]
+	excludesfile = /Users/alekshiidenhovi/.gitignore_global
