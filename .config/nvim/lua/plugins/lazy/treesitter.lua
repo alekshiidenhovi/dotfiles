@@ -14,6 +14,7 @@ return {
           "cmake",
           "cpp",
           "css",
+          "dart",
           "dockerfile",
           "go",
           "html",
