@@ -20,6 +20,7 @@ return {
         lua_ls = {},
         clangd = {},
         cmake = {},
+        dartls = {},
       }
     },
     config = function(_, opts)
