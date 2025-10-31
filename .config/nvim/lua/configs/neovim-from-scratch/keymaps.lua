@@ -32,7 +32,8 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", { silent = true, desc = "Res
 -- Insert --
 keymap("i", "jk", "<ESC>", { silent = true, desc = "Switch To Normal Mode" })
 keymap("i", "<A-BS>", "<C-w>", { silent = true, desc = "Delete Word Before Cursor" })
-
+keymap('i', '<A-b>', '<C-o>b', { desc = 'Move word backward' })
+keymap('i', '<A-f>', '<C-o>w', { desc = 'Move word forward' })
 
 -- Execute --
 keymap("n", "<leader>xf", "<cmd>source %<CR>", { silent = false, desc = "Source The File" })
