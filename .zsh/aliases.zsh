@@ -9,6 +9,8 @@ alias glog='git log --oneline --graph --decorate --all --date=relative --max-cou
 alias gloga='git log --oneline --graph --decorate --all --date=relative'
 alias gamend='git commit --no-edit --amend'
 
+alias n='nvim'
+
 gundo() {
     if [ -z "$1" ]; then
         echo "No number of commits specified. Undoing the last 1 commit (--soft)."
