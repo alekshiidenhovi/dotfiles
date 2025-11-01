@@ -34,6 +34,19 @@ return {
       keymap({ "n", "t" }, "<C-t><C-t>", "<cmd>ToggleTermToggleAll<CR>", { silent = true, desc = "Toggle All Terminals" })
       keymap({ "n", "t" }, "<C-t><C-n>", "<cmd>TermNew direction=vertical size=80<CR>",
         { silent = true, desc = "New Terminal" })
+      keymap({ "n" }, "<C-t><C-e>", function()
+        local terms = require("toggleterm.terminal").get_all()
+
+        local firstTerminal = terms[1]
+        if firstTerminal then
+          if not firstTerminal:is_open() then
+            firstTerminal:toggle()
+          end
+          firstTerminal:focus()
+        else
+          vim.cmd('TermNew direction=vertical size=80')
+        end
+      end, { silent = true, desc = "Enter First Terminal" })
       keymap({ "n", "t" }, "<C-t><C-d>", function()
         local toggleterminal = require("toggleterm.terminal")
         local focusedTerminalId = toggleterminal.get_focused_id()
