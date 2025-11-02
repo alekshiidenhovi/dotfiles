@@ -21,6 +21,7 @@ return {
         clangd = {},
         cmake = {},
         dartls = {},
+        ruff = {}
       }
     },
     config = function(_, opts)
