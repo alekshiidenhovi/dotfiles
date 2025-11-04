@@ -16,6 +16,7 @@ return {
           "css",
           "dart",
           "dockerfile",
+          "gleam",
           "go",
           "html",
           "javascript",
