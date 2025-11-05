@@ -6,6 +6,7 @@ return {
       preset = "helix",
       spec = {
         { "<C-t>", group = "terminal", icon = "" },
+        { "<leader>a", group = "ai", icon = "󱜙" },
         { "<leader>x", group = "execute", icon = "" },
         { "<leader>f", group = "find", icon = "󰈞" },
         { "<leader>g", group = "git", icon = "" },

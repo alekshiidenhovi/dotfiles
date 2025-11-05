@@ -50,7 +50,6 @@ keymap("n", "<leader>q", function() vim.diagnostic.setqflist({ open = true }) en
 -- Stay in indent mode
 keymap("v", "<", "<gv", { silent = true, desc = "Indent Left" })
 keymap("v", ">", ">gv", { silent = true, desc = "Indent Right" })
-keymap("n", "<C-a>", "ggVG", { silent = true, desc = "Select All" })
 
 -- Move text up and down
 keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move Line(s) Down" })
