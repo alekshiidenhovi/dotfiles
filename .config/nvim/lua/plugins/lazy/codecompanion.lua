@@ -43,11 +43,13 @@ return {
 
       })
 
-      vim.keymap.set({ "n", "v" }, "<leader>aa", "<cmd>CodeCompanionActions<cr>",
+      local companion = require("codecompanion")
+
+      vim.keymap.set({ "n", "v" }, "<leader>aa", companion.actions,
         { silent = true, desc = "Show Chat Command Palette" })
-      vim.keymap.set({ "n", "v" }, "<leader>at", "<cmd>CodeCompanionChat Toggle<cr>",
+      vim.keymap.set({ "n", "v" }, "<leader>at", companion.toggle,
         { silent = true, desc = "Toggle Chat" })
-      vim.keymap.set("v", "ga", "<cmd>CodeCompanionChat Add<cr>", { silent = true, desc = "Add to Chat Buffer" })
+      vim.keymap.set("v", "ga", companion.add, { silent = true, desc = "Add to Chat Buffer" })
     end
   },
 }
