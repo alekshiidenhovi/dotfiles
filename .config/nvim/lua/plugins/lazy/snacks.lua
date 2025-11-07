@@ -104,6 +104,10 @@ return {
         enabled = true
       },
 
+      ---@class snacks.input.Config
+      input = {
+        enabled = true
+      },
     },
 
     keys = {
