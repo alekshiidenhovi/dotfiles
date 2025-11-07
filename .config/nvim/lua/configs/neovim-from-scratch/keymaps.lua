@@ -40,11 +40,6 @@ keymap("n", "<leader>cy", "\"+y", { silent = true, desc = "Yank Line" })
 keymap("n", "<leader>cc", ":%y+<CR>", { silent = true, desc = "Copy Buffer" })
 keymap("n", "<leader>cp", "\"+p", { silent = true, desc = "Paste" })
 
--- Execute --
-keymap("n", "<leader>ef", "<cmd>source %<CR>", { silent = false, desc = "Source The File" })
-keymap("n", "<leader>ex", ":.lua<CR>", { silent = false, desc = "Execute The Line" })
-keymap("v", "<leader>ex", ":lua<CR>", { silent = false, desc = "Execute Lines" })
-
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", { silent = true, desc = "Indent Left" })
