@@ -173,11 +173,11 @@ return {
       { "<leader>ba",      function() require("snacks").bufdelete.all() end,                                  desc = "Delete all buffers" },
 
       -- Other
+      { "<leader>gb",      function() require("snacks").git.blame_line() end,                                 desc = "Git Blame" },
       { "<leader>gB",      function() require("snacks").gitbrowse() end,                                      desc = "Git Browse",                 mode = { "n", "v" } },
       { "]]",              function() require("snacks").words.jump(vim.v.count1) end,                         desc = "Next LSP Reference",         mode = { "n", "t" } },
       { "[[",              function() require("snacks").words.jump(-vim.v.count1) end,                        desc = "Prev LSP Reference",         mode = { "n", "t" } },
       { "<leader>z",       function() require("snacks").zen() end,                                            desc = "Zen Mode" },
-      { "<leader>gbl",     function() require("snacks").git.blame_line() end,                                 desc = "Git Blame" },
     }
   }
 }
