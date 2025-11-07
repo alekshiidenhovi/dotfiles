@@ -91,7 +91,7 @@ return {
 
       ---@class snacks.scroll.Config
       scroll = {
-        enabled = true,
+        enabled = false,
       },
 
       ---@class snacks.words.Config
