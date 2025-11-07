@@ -2,8 +2,9 @@ return {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
+    ---@class wk.Opts
     opts = {
-      preset = "helix",
+      preset = "modern",
       spec = {
         { "<C-t>", group = "terminal", icon = "" },
         { "<leader>a", group = "ai", icon = "󱜙" },
