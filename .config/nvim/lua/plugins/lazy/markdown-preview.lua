@@ -34,7 +34,7 @@ return {
       })
 
       local keymap = vim.keymap.set
-      keymap("n", "<leader>m", "<cmd>Markview toggle<CR>", { silent = true, desc = "Toggle Preview" })
+      keymap("n", "<leader>um", "<cmd>Markview toggle<CR>", { silent = true, desc = "Toggle Markdown Preview" })
 
       vim.api.nvim_create_autocmd('FileType', {
         pattern = 'codecompanion',
