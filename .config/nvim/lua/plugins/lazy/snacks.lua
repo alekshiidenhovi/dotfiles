@@ -95,6 +95,11 @@ return {
         enabled = true,
       },
 
+      ---@class snacks.words.Config
+      words = {
+        enabled = true
+      },
+
     },
 
     keys = {
@@ -189,7 +194,9 @@ return {
       { "<leader>ss",      function() require("snacks").picker.lsp_symbols() end,                             desc = "LSP Symbols" },
       { "<leader>sS",      function() require("snacks").picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
       -- Other
-      { "<leader>gB",      function() Snacks.gitbrowse() end,                                                 desc = "Git Browse",                 mode = { "n", "v" } },
+      { "<leader>gB",      function() require("snacks").gitbrowse() end,                                      desc = "Git Browse",                 mode = { "n", "v" } },
+      { "]]",              function() require("snacks").words.jump(vim.v.count1) end,                         desc = "Next LSP Reference",         mode = { "n", "t" } },
+      { "[[",              function() require("snacks").words.jump(-vim.v.count1) end,                        desc = "Prev LSP Reference",         mode = { "n", "t" } },
     }
   }
 }
