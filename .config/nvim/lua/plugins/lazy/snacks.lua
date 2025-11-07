@@ -4,94 +4,169 @@ return {
     "folke/snacks.nvim",
     lazy = false,
     priority = 1000,
-    config = function()
-      ---@type snacks.Config
-      local opts = {
 
-        ---@class snacks.zen.Config
-        zen = {
-          enabled = true
-        },
+    ---@type snacks.Config
+    opts = {
+      ---@class snacks.zen.Config
+      zen = {
+        enabled = true
+      },
 
-        ---@class snacks.bufdelete.Opts
-        bufdelete = {
-          enabled = true
-        },
+      ---@class snacks.bufdelete.Opts
+      bufdelete = {
+        enabled = true
+      },
 
-        ---@class snacks.dashboard.Config
-        dashboard = {
-          enabled = true,
-          sections = {
-            { section = "header" },
-            { section = "keys",     gap = 1,            padding = 2 },
-            { section = "projects", title = "Projects", indent = 2, padding = 3 },
-            { section = "startup" },
-          }
-        },
+      ---@class snacks.dashboard.Config
+      dashboard = {
+        enabled = true,
+        sections = {
+          { section = "header" },
+          { section = "keys",     gap = 1,            padding = 2 },
+          { section = "projects", title = "Projects", indent = 2, padding = 3 },
+          { section = "startup" },
+        }
+      },
 
-        ---@class snacks.git.Config
-        git = {
-          enabled = true,
-        },
+      ---@class snacks.git.Config
+      git = {
+        enabled = true,
+      },
 
-        ---@class snacks.statuscolumn.Config
-        statuscolumn = {
-          enabled = true
-        },
+      ---@class snacks.statuscolumn.Config
+      statuscolumn = {
+        enabled = true
+      },
 
-        ---@class snacks.dim.Config
-        dim = {
-          enabled = true,
-        },
+      ---@class snacks.dim.Config
+      dim = {
+        enabled = true,
+      },
 
-        ---@class snacks.explorer.Config
-        explorer = {
-          enabled = true
-        },
+      ---@class snacks.explorer.Config
+      explorer = {
+        enabled = true
+      },
 
-        ---@class snacks.picker.Config
-        picker = {
-          sources = {
-            explorer = {
-              win = {
-                input = {
-                  keys = {
-                    ["<C-t>"] = false
-                  },
+      ---@class snacks.picker.Config
+      picker = {
+        sources = {
+          explorer = {
+            win = {
+              input = {
+                keys = {
+                  ["<C-t>"] = false
                 },
-                list = {
-                  keys = {
-                    ["<C-t>"] = false
-                  },
+              },
+              list = {
+                keys = {
+                  ["<C-t>"] = false
                 },
               },
             },
           },
+          gh_issue = {},
+          gh_pr = {}
         },
+      },
+
+      ---@class snacks.gh.Config
+      gh = {
+        enabled = true
       }
-      require("snacks").setup(opts)
-      local keymap = vim.keymap.set
-      keymap("n", "<leader>Z", function() Snacks.zen() end, { silent = true, desc = "Zen Mode Zoomed" })
-      keymap("n", "<leader>z", function()
-        if dimEnabled then
-          Snacks.dim.disable()
-          dimEnabled = false
-        else
-          Snacks.dim.enable()
-          dimEnabled = true
-        end
-      end, { silent = true, desc = "Zen Mode" })
+    },
 
-      keymap("n", "<leader>bc", function() Snacks.bufdelete.delete() end,
-        { silent = true, desc = "Delete current buffer" })
-      keymap("n", "<leader>bfc", function() Snacks.bufdelete.delete({ force = true }) end,
-        { silent = true, desc = "Force delete current buffer" })
-      keymap("n", "<leader>bo", function() Snacks.bufdelete.other() end, { silent = true, desc = "Delete other buffers" })
-      keymap("n", "<leader>ba", function() Snacks.bufdelete.all() end, { silent = true, desc = "Delete all buffers" })
+    keys = {
+      -- Zen mode
+      { "<leader>Z", function() require("snacks").zen() end, desc = "Zen Mode Zoomed" },
+      {
+        "<leader>z",
+        function()
+          if dimEnabled then
+            require("snacks").dim.disable()
+            dimEnabled = false
+          else
+            require("snacks").dim.enable()
+            dimEnabled = true
+          end
+        end,
+        desc = "Zen Mode",
+      },
 
-      keymap("n", "<leader>gbl", function() Snacks.git.blame_line() end, { silent = true, desc = "Git Blame" })
+      -- Buffers
+      { "<leader>bc", function() require("snacks").bufdelete.delete() end, desc = "Delete current buffer" },
+      { "<leader>bfc", function() require("snacks").bufdelete.delete({ force = true }) end, desc = "Force delete current buffer" },
+      { "<leader>bo", function() require("snacks").bufdelete.other() end, desc = "Delete other buffers" },
+      { "<leader>ba", function() require("snacks").bufdelete.all() end, desc = "Delete all buffers" },
 
-      keymap("n", "<leader>e", function() Snacks.explorer() end, { silent = true, desc = "File-tree Explorer" })
-    end,
+      -- Git blame
+      { "<leader>gbl", function() require("snacks").git.blame_line() end, desc = "Git Blame" },
+
+      -- Explorer
+      { "<leader>e", function() require("snacks").explorer() end, desc = "File-tree Explorer" },
+
+      -- Pickers
+      { "<leader><space>", function() require("snacks").picker.smart() end, desc = "Smart Find Files" },
+      { "<leader>,", function() require("snacks").picker.buffers() end, desc = "Buffers" },
+      { "<leader>/", function() require("snacks").picker.grep() end, desc = "Grep" },
+      { "<leader>:", function() require("snacks").picker.command_history() end, desc = "Command History" },
+      -- find
+      { "<leader>fb", function() require("snacks").picker.buffers() end, desc = "Buffers" },
+      { "<leader>fc", function() require("snacks").picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
+      { "<leader>ff", function() require("snacks").picker.files() end, desc = "Find Files" },
+      { "<leader>fg", function() require("snacks").picker.git_files() end, desc = "Find Git Files" },
+      { "<leader>fp", function() require("snacks").picker.projects() end, desc = "Projects" },
+      { "<leader>fr", function() require("snacks").picker.recent() end, desc = "Recent" },
+      -- git
+      { "<leader>gb", function() require("snacks").picker.git_branches() end, desc = "Git Branches" },
+      { "<leader>gl", function() require("snacks").picker.git_log() end, desc = "Git Log" },
+      { "<leader>gL", function() require("snacks").picker.git_log_line() end, desc = "Git Log Line" },
+      { "<leader>gs", function() require("snacks").picker.git_status() end, desc = "Git Status" },
+      { "<leader>gS", function() require("snacks").picker.git_stash() end, desc = "Git Stash" },
+      { "<leader>gd", function() require("snacks").picker.git_diff() end, desc = "Git Diff (Hunks)" },
+      { "<leader>gf", function() require("snacks").picker.git_log_file() end, desc = "Git Log File" },
+      -- gh
+      { "<leader>gi", function() require("snacks").picker.gh_issue() end, desc = "GitHub Issues (open)" },
+      { "<leader>gI", function() require("snacks").picker.gh_issue({ state = "all" }) end, desc = "GitHub Issues (all)" },
+      { "<leader>gp", function() require("snacks").picker.gh_pr() end, desc = "GitHub Pull Requests (open)" },
+      { "<leader>gP", function() require("snacks").picker.gh_pr({ state = "all" }) end, desc = "GitHub Pull Requests (all)" },
+      -- Grep
+      { "<leader>sb", function() require("snacks").picker.lines() end, desc = "Buffer Lines" },
+      { "<leader>sB", function() require("snacks").picker.grep_buffers() end, desc = "Grep Open Buffers" },
+      { "<leader>sg", function() require("snacks").picker.grep() end, desc = "Grep" },
+      { "<leader>sw", function() require("snacks").picker.grep_word() end, desc = "Visual selection or word", mode = { "n", "x" } },
+      -- search
+      { '<leader>s"', function() require("snacks").picker.registers() end, desc = "Registers" },
+      { '<leader>s/', function() require("snacks").picker.search_history() end, desc = "Search History" },
+      { "<leader>sa", function() require("snacks").picker.autocmds() end, desc = "Autocmds" },
+      { "<leader>sb", function() require("snacks").picker.lines() end, desc = "Buffer Lines" },
+      { "<leader>sc", function() require("snacks").picker.command_history() end, desc = "Command History" },
+      { "<leader>sC", function() require("snacks").picker.commands() end, desc = "Commands" },
+      { "<leader>sd", function() require("snacks").picker.diagnostics() end, desc = "Diagnostics" },
+      { "<leader>sD", function() require("snacks").picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
+      { "<leader>sh", function() require("snacks").picker.help() end, desc = "Help Pages" },
+      { "<leader>sH", function() require("snacks").picker.highlights() end, desc = "Highlights" },
+      { "<leader>si", function() require("snacks").picker.icons() end, desc = "Icons" },
+      { "<leader>sj", function() require("snacks").picker.jumps() end, desc = "Jumps" },
+      { "<leader>sk", function() require("snacks").picker.keymaps() end, desc = "Keymaps" },
+      { "<leader>sl", function() require("snacks").picker.loclist() end, desc = "Location List" },
+      { "<leader>sm", function() require("snacks").picker.marks() end, desc = "Marks" },
+      { "<leader>sM", function() require("snacks").picker.man() end, desc = "Man Pages" },
+      { "<leader>sp", function() require("snacks").picker.lazy() end, desc = "Search for Plugin Spec" },
+      { "<leader>sq", function() require("snacks").picker.qflist() end, desc = "Quickfix List" },
+      { "<leader>sR", function() require("snacks").picker.resume() end, desc = "Resume" },
+      { "<leader>su", function() require("snacks").picker.undo() end, desc = "Undo History" },
+      { "<leader>uC", function() require("snacks").picker.colorschemes() end, desc = "Colorschemes" },
+      -- LSP
+      { "gd", function() require("snacks").picker.lsp_definitions() end, desc = "Goto Definition" },
+      { "gD", function() require("snacks").picker.lsp_declarations() end, desc = "Goto Declaration" },
+      { "gr", function() require("snacks").picker.lsp_references() end, nowait = true, desc = "References" },
+      { "gI", function() require("snacks").picker.lsp_implementations() end, desc = "Goto Implementation" },
+      { "gy", function() require("snacks").picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition" },
+      { "gai", function() require("snacks").picker.lsp_incoming_calls() end, desc = "C[a]lls Incoming" },
+      { "gao", function() require("snacks").picker.lsp_outgoing_calls() end, desc = "C[a]lls Outgoing" },
+      { "<leader>ss", function() require("snacks").picker.lsp_symbols() end, desc = "LSP Symbols" },
+      { "<leader>sS", function() require("snacks").picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+    }
   }
 }
