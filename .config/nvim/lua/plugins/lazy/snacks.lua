@@ -29,7 +29,30 @@ return {
         },
         dim = {
           enabled = true,
-        }
+        },
+
+        ---@class snacks.picker.explorer.Config: snacks.picker.files.Config
+        explorer = {
+          enabled = true
+        },
+        picker = {
+          sources = {
+            explorer = {
+              win = {
+                input = {
+                  keys = {
+                    ["<C-t>"] = false
+                  },
+                },
+                list = {
+                  keys = {
+                    ["<C-t>"] = false
+                  },
+                },
+              },
+            },
+          },
+        },
       }
       require("snacks").setup(opts)
       local keymap = vim.keymap.set
@@ -52,6 +75,8 @@ return {
       keymap("n", "<leader>ba", function() Snacks.bufdelete.all() end, { silent = true, desc = "Delete all buffers" })
 
       keymap("n", "<leader>gbl", function() Snacks.git.blame_line() end, { silent = true, desc = "Git Blame" })
+
+      keymap("n", "<leader>e", function() Snacks.explorer() end, { silent = true, desc = "File-tree Explorer" })
     end,
   }
 }
