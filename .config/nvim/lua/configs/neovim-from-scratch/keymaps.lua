@@ -35,6 +35,11 @@ keymap("i", "<A-BS>", "<C-w>", { silent = true, desc = "Delete Word Before Curso
 keymap('i', '<A-b>', '<C-o>b', { desc = 'Move word backward' })
 keymap('i', '<A-f>', '<C-o>w', { desc = 'Move word forward' })
 
+-- Clipboard --
+keymap("n", "<leader>cy", "\"+y", { silent = true, desc = "Yank Line" })
+keymap("n", "<leader>cc", "\"+yggyG", { silent = true, desc = "Copy Buffer" })
+keymap("n", "<leader>cp", "\"+p", { silent = true, desc = "Paste" })
+
 -- Execute --
 keymap("n", "<leader>xf", "<cmd>source %<CR>", { silent = false, desc = "Source The File" })
 keymap("n", "<leader>xx", ":.lua<CR>", { silent = false, desc = "Execute The Line" })

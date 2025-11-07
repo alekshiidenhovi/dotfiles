@@ -7,6 +7,7 @@ return {
       spec = {
         { "<C-t>", group = "terminal", icon = "" },
         { "<leader>a", group = "ai", icon = "󱜙" },
+        { "<leader>c", group = "clipboard", icon = "" },
         { "<leader>x", group = "execute", icon = "" },
         { "<leader>f", group = "find", icon = "󰈞" },
         { "<leader>g", group = "git", icon = "" },
