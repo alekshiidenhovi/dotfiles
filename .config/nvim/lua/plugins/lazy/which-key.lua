@@ -14,7 +14,7 @@ return {
         { "<leader>g", group = "git", icon = "" },
         { "<leader>L", group = "Lazy", icon = "󰒲" },
         { "<leader>s", group = "search", icon = "" },
-        { "<leader>t", group = "tab-completion", icon = "" },
+        { "<leader>t", group = "supermaven", icon = "" },
         { "<leader>u", group = "ui", icon = "󰨇" },
         { "<leader>x", group = "diagnostics/quickfix", icon = "󱖫" },
         { "<leader>z", icon = "󱅻" },
