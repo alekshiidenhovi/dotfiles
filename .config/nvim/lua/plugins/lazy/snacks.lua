@@ -90,6 +90,10 @@ return {
         enabled = true
       },
 
+      ---@class snacks.scroll.Config
+      scroll = {
+        enabled = true,
+      },
 
     },
 
