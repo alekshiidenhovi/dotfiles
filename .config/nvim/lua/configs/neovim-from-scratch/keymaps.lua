@@ -41,15 +41,9 @@ keymap("n", "<leader>cc", "\"+yggyG", { silent = true, desc = "Copy Buffer" })
 keymap("n", "<leader>cp", "\"+p", { silent = true, desc = "Paste" })
 
 -- Execute --
-keymap("n", "<leader>xf", "<cmd>source %<CR>", { silent = false, desc = "Source The File" })
-keymap("n", "<leader>xx", ":.lua<CR>", { silent = false, desc = "Execute The Line" })
-keymap("v", "<leader>xx", ":lua<CR>", { silent = false, desc = "Execute Lines" })
-
--- Quickfix
-keymap("n", "<A-j>", "<cmd>cnext<CR>", { silent = true, desc = "Next Quickfix" })
-keymap("n", "<A-k>", "<cmd>cprev<CR>", { silent = true, desc = "Previous Quickfix" })
-keymap("n", "<leader>q", function() vim.diagnostic.setqflist({ open = true }) end,
-  { silent = true, desc = "Quickfix" })
+keymap("n", "<leader>ef", "<cmd>source %<CR>", { silent = false, desc = "Source The File" })
+keymap("n", "<leader>ex", ":.lua<CR>", { silent = false, desc = "Execute The Line" })
+keymap("v", "<leader>ex", ":lua<CR>", { silent = false, desc = "Execute Lines" })
 
 -- Visual --
 -- Stay in indent mode
