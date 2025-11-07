@@ -1,4 +1,3 @@
-local dimEnabled = false
 return {
   {
     "folke/snacks.nvim",
@@ -103,39 +102,12 @@ return {
     },
 
     keys = {
-      -- Zen mode
-      { "<leader>Z",       function() require("snacks").zen() end,                                            desc = "Zen Mode Zoomed" },
-      {
-        "<leader>z",
-        function()
-          if dimEnabled then
-            require("snacks").dim.disable()
-            dimEnabled = false
-          else
-            require("snacks").dim.enable()
-            dimEnabled = true
-          end
-        end,
-        desc = "Zen Mode",
-      },
-
-      -- Buffers
-      { "<leader>bc",      function() require("snacks").bufdelete.delete() end,                               desc = "Delete current buffer" },
-      { "<leader>bfc",     function() require("snacks").bufdelete.delete({ force = true }) end,               desc = "Force delete current buffer" },
-      { "<leader>bo",      function() require("snacks").bufdelete.other() end,                                desc = "Delete other buffers" },
-      { "<leader>ba",      function() require("snacks").bufdelete.all() end,                                  desc = "Delete all buffers" },
-
-      -- Git blame
-      { "<leader>gbl",     function() require("snacks").git.blame_line() end,                                 desc = "Git Blame" },
-
-      -- Explorer
-      { "<leader>e",       function() require("snacks").explorer() end,                                       desc = "File-tree Explorer" },
-
       -- Pickers
       { "<leader><space>", function() require("snacks").picker.smart() end,                                   desc = "Smart Find Files" },
       { "<leader>,",       function() require("snacks").picker.buffers() end,                                 desc = "Buffers" },
       { "<leader>/",       function() require("snacks").picker.grep() end,                                    desc = "Grep" },
       { "<leader>:",       function() require("snacks").picker.command_history() end,                         desc = "Command History" },
+      { "<leader>e",       function() require("snacks").explorer() end,                                       desc = "File-tree Explorer" },
       -- find
       { "<leader>fb",      function() require("snacks").picker.buffers() end,                                 desc = "Buffers" },
       { "<leader>fc",      function() require("snacks").picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
@@ -193,10 +165,19 @@ return {
       { "gao",             function() require("snacks").picker.lsp_outgoing_calls() end,                      desc = "C[a]lls Outgoing" },
       { "<leader>ss",      function() require("snacks").picker.lsp_symbols() end,                             desc = "LSP Symbols" },
       { "<leader>sS",      function() require("snacks").picker.lsp_workspace_symbols() end,                   desc = "LSP Workspace Symbols" },
+
+      -- Buffers
+      { "<leader>bc",      function() require("snacks").bufdelete.delete() end,                               desc = "Delete current buffer" },
+      { "<leader>bfc",     function() require("snacks").bufdelete.delete({ force = true }) end,               desc = "Force delete current buffer" },
+      { "<leader>bo",      function() require("snacks").bufdelete.other() end,                                desc = "Delete other buffers" },
+      { "<leader>ba",      function() require("snacks").bufdelete.all() end,                                  desc = "Delete all buffers" },
+
       -- Other
       { "<leader>gB",      function() require("snacks").gitbrowse() end,                                      desc = "Git Browse",                 mode = { "n", "v" } },
       { "]]",              function() require("snacks").words.jump(vim.v.count1) end,                         desc = "Next LSP Reference",         mode = { "n", "t" } },
       { "[[",              function() require("snacks").words.jump(-vim.v.count1) end,                        desc = "Prev LSP Reference",         mode = { "n", "t" } },
+      { "<leader>z",       function() require("snacks").zen() end,                                            desc = "Zen Mode" },
+      { "<leader>gbl",     function() require("snacks").git.blame_line() end,                                 desc = "Git Blame" },
     }
   }
 }
