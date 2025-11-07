@@ -37,7 +37,7 @@ keymap('i', '<A-f>', '<C-o>w', { desc = 'Move word forward' })
 
 -- Clipboard --
 keymap("n", "<leader>cy", "\"+y", { silent = true, desc = "Yank Line" })
-keymap("n", "<leader>cc", "\"+yggyG", { silent = true, desc = "Copy Buffer" })
+keymap("n", "<leader>cc", ":%y+<CR>", { silent = true, desc = "Copy Buffer" })
 keymap("n", "<leader>cp", "\"+p", { silent = true, desc = "Paste" })
 
 -- Execute --
