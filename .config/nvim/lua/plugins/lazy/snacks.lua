@@ -5,36 +5,51 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      --@type snacks.Config
+      ---@type snacks.Config
       local opts = {
-        zen = { enabled = true },
+
+        ---@class snacks.zen.Config
+        zen = {
+          enabled = true
+        },
+
+        ---@class snacks.bufdelete.Opts
         bufdelete = {
           enabled = true
         },
+
+        ---@class snacks.dashboard.Config
         dashboard = {
           enabled = true,
           sections = {
             { section = "header" },
             { section = "keys",     gap = 1,            padding = 2 },
             { section = "projects", title = "Projects", indent = 2, padding = 3 },
-
             { section = "startup" },
           }
         },
+
+        ---@class snacks.git.Config
         git = {
-          enabled = true
+          enabled = true,
         },
+
+        ---@class snacks.statuscolumn.Config
         statuscolumn = {
           enabled = true
         },
+
+        ---@class snacks.dim.Config
         dim = {
           enabled = true,
         },
 
-        ---@class snacks.picker.explorer.Config: snacks.picker.files.Config
+        ---@class snacks.explorer.Config
         explorer = {
           enabled = true
         },
+
+        ---@class snacks.picker.Config
         picker = {
           sources = {
             explorer = {
