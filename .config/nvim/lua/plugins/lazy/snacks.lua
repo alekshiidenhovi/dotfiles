@@ -85,6 +85,11 @@ return {
         enabled = true
       },
 
+      ---@class snacks.quickfile.Config
+      quickfile = {
+        enabled = true
+      },
+
 
     },
 
