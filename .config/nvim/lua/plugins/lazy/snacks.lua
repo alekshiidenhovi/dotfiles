@@ -168,8 +168,7 @@ return {
       { "<leader>sq",      function() require("snacks").picker.qflist() end,                                  desc = "Quickfix List" },
       { "<leader>sR",      function() require("snacks").picker.resume() end,                                  desc = "Resume" },
       { "<leader>su",      function() require("snacks").picker.undo() end,                                    desc = "Undo History" },
-      { "<leader>uC",      function() require("snacks").picker.colorschemes() end,                            desc = "Colorschemes" },
-      -- LSP
+      { "<leader>uc",      function() require("snacks").picker.colorschemes() end,                            desc = "Colorschemes" },
       { "gd",              function() require("snacks").picker.lsp_definitions() end,                         desc = "Goto Definition" },
       { "gD",              function() require("snacks").picker.lsp_declarations() end,                        desc = "Goto Declaration" },
       { "gr",              function() require("snacks").picker.lsp_references() end,                          desc = "References",                 nowait = true, },
