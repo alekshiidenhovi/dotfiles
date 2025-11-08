@@ -108,6 +108,11 @@ return {
       input = {
         enabled = true
       },
+
+      ---@class snacks.rename.Config
+      rename = {
+        enabled = true
+      }
     },
 
     keys = {
@@ -187,6 +192,7 @@ return {
       { "]]",              function() require("snacks").words.jump(vim.v.count1) end,                         desc = "Next LSP Reference",         mode = { "n", "t" } },
       { "[[",              function() require("snacks").words.jump(-vim.v.count1) end,                        desc = "Prev LSP Reference",         mode = { "n", "t" } },
       { "<leader>z",       function() require("snacks").zen() end,                                            desc = "Zen Mode" },
+      { "<leader>cR",      function() require("snacks").rename.rename_file() end,                             desc = "Rename File" },
     }
   }
 }
