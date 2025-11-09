@@ -45,7 +45,7 @@ return {
 
       local companion = require("codecompanion")
 
-      vim.keymap.set({ "n", "v" }, "<leader>aa", companion.actions,
+      vim.keymap.set({ "n", "v" }, "<leader>ap", companion.actions,
         { silent = true, desc = "Show Chat Command Palette" })
       vim.keymap.set({ "n", "v" }, "<leader>at", companion.toggle,
         { silent = true, desc = "Toggle Chat" })
