@@ -185,11 +185,13 @@ return {
       { "<leader>sR",      function() require("snacks").picker.resume({ hidden = true }) end,                                desc = "Resume" },
       { "<leader>su",      function() require("snacks").picker.undo({ hidden = true }) end,                                  desc = "Undo History" },
       { "<leader>uc",      function() require("snacks").picker.colorschemes({ hidden = true }) end,                          desc = "Colorschemes" },
-      { "gd",              function() require("snacks").picker.lsp_definitions({ hidden = true }) end,                       desc = "Goto Definition" },
-      { "gD",              function() require("snacks").picker.lsp_declarations({ hidden = true }) end,                      desc = "Goto Declaration" },
-      { "gr",              function() require("snacks").picker.lsp_references({ hidden = true }) end,                        desc = "References",                 nowait = true, },
-      { "gI",              function() require("snacks").picker.lsp_implementations({ hidden = true }) end,                   desc = "Goto Implementation" },
-      { "gy",              function() require("snacks").picker.lsp_type_definitions({ hidden = true }) end,                  desc = "Goto T[y]pe Definition" },
+      { "grd",             function() require("snacks").picker.lsp_definitions({ hidden = true }) end,                       desc = "Goto Definition" },
+      { "grl",             function() require("snacks").picker.lsp_declarations({ hidden = true }) end,                      desc = "Goto Declaration" },
+      { "grr",             function() require("snacks").picker.lsp_references({ hidden = true }) end,                        desc = "References",                 nowait = true, },
+      { "gri",             function() require("snacks").picker.lsp_implementations({ hidden = true }) end,                   desc = "Goto Implementation" },
+      { "grt",             function() require("snacks").picker.lsp_type_definitions({ hidden = true }) end,                  desc = "Goto Type Definition" },
+      { "gra",             function() vim.lsp.buf.code_action() end,                                                         desc = "Code Action" },      -- This is a rename of the default LSP code action
+      { "grn",             function() vim.lsp.buf.rename() end,                                                              desc = "Rename Reference" }, -- This is a rename of the default LSP reference gename
       { "gai",             function() require("snacks").picker.lsp_incoming_calls({ hidden = true }) end,                    desc = "C[a]lls Incoming" },
       { "gao",             function() require("snacks").picker.lsp_outgoing_calls({ hidden = true }) end,                    desc = "C[a]lls Outgoing" },
       { "<leader>ss",      function() require("snacks").picker.lsp_symbols({ hidden = true }) end,                           desc = "LSP Symbols" },
