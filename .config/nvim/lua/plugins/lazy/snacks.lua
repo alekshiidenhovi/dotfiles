@@ -199,7 +199,6 @@ return {
 
       -- Buffers
       { "<leader>bc",      function() require("snacks").bufdelete.delete() end,                                              desc = "Delete current buffer" },
-      { "<leader>bfc",     function() require("snacks").bufdelete.delete({ force = true }) end,                              desc = "Force delete current buffer" },
       { "<leader>bo",      function() require("snacks").bufdelete.other() end,                                               desc = "Delete other buffers" },
       { "<leader>ba",      function() require("snacks").bufdelete.all() end,                                                 desc = "Delete all buffers" },
 
