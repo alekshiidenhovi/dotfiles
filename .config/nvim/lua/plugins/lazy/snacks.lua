@@ -128,6 +128,11 @@ return {
       ---@class snacks.rename.Config
       rename = {
         enabled = true
+      },
+
+      ---@class snacks.notifier.Config
+      notifier = {
+        enabled = true
       }
     },
 
@@ -209,6 +214,8 @@ return {
       { "[[",              function() require("snacks").words.jump(-vim.v.count1) end,                                       desc = "Prev LSP Reference",         mode = { "n", "t" } },
       { "<leader>z",       function() require("snacks").zen() end,                                                           desc = "Zen Mode" },
       { "<leader>cR",      function() require("snacks").rename.rename_file() end,                                            desc = "Rename File" },
+      { "<leader>un",      function() require("snacks").notifier.hide() end,                                                 desc = "Dismiss All Notifications" },
+      { "<leader>n",       function() require("snacks").notifier.show_history() end,                                         desc = "Notification History" },
     }
   }
 }
