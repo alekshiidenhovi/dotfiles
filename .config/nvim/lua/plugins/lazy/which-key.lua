@@ -7,7 +7,15 @@ return {
       preset = "modern",
       spec = {
         { "<C-t>", group = "terminal", icon = "" },
+
         { "<leader>a", group = "ai", icon = "󱜙" },
+        { "<leader>ac", group = "inline/comment", icon = "󰅺" },
+        { "<leader>acb", icon = "" },
+        { "<leader>acc", icon = "" },
+        { "<leader>acf", icon = "󰊕" },
+        { "<leader>acl", icon = "" },
+        { "<leader>ac{", icon = "󰅩" },
+
         { "<leader>b", group = "buffer", icon = "" },
         { "<leader>c", group = "code", icon = "" },
         { "<leader>e", icon = "󰙅" },
