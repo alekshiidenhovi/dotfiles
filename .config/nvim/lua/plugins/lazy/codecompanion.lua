@@ -27,7 +27,7 @@ return {
             gemini = function()
               return require("codecompanion.adapters").extend("gemini", {
                 env = {
-                  api_key = "cmd:op read op://Personal/Gemini/credential --no-newline",
+                  api_key = vim.fn.getenv("GEMINI_API_KEY")
                 },
               })
             end
