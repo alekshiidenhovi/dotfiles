@@ -133,7 +133,12 @@ return {
       ---@class snacks.notifier.Config
       notifier = {
         enabled = true
-      }
+      },
+
+      ---@class snacks.debug.Config
+      debug = {
+        enabled = true
+      },
     },
 
     keys = {

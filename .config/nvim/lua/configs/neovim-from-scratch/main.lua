@@ -31,4 +31,11 @@ require("lazy").setup({
   checker = { enabled = true },
 })
 
+_G.dd = function(...)
+  Snacks.debug.inspect(...)
+end
+_G.bt = function()
+  Snacks.debug.backtrace()
+end
+
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", { silent = true, desc = "Lazy" })
