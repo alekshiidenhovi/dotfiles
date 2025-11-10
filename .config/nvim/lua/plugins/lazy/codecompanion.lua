@@ -9,12 +9,16 @@ return {
       require("codecompanion").setup({
         strategies = {
           chat = {
-            adapter = "gemini",
-            model = "gemini-2.0-flash-lite"
+            adapter = {
+              name = "gemini",
+              model = "gemini-2.5-flash",
+            }
           },
           inline = {
-            adapter = "gemini",
-            model = "gemini-2.0-flash-lite"
+            adapter = {
+              name = "gemini",
+              model = "gemini-2.5-flash-lite",
+            }
           }
         },
 
