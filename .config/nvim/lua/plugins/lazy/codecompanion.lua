@@ -38,6 +38,9 @@ return {
         display = {
           action_palette = {
             provider = "snacks"
+          },
+          chat = {
+            show_settings = true,
           }
         },
 
