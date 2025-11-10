@@ -101,7 +101,10 @@ return {
 
       ---@class snacks.indent.Config
       indent = {
-        enabled = true
+        enabled = true,
+        animate = {
+          enabled = false
+        }
       },
 
       ---@class snacks.input.Config
