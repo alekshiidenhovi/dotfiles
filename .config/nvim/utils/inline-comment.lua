@@ -95,15 +95,12 @@ local prompt_template = [[
 Role:
 - You are an expert in documenting code by adding helpful docstrings.
 
-Programming language:
-- The filetype of the file you need to modify is %s.
-
 General rules:
 - Do not modify existing code
 - Do not add new code
 - Only add comments to specified places.
 
-Language-specific rules:
+Language-specific rules (filetype: %s):
 %s
 
 Scope:
