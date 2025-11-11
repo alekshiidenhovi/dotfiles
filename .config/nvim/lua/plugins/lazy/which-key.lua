@@ -15,6 +15,7 @@ return {
         { "<leader>acf", icon = "󰊕" },
         { "<leader>acl", icon = "" },
         { "<leader>ac{", icon = "󰅩" },
+        { "<leader>as", group = "supermaven", icon = "" },
 
         { "<leader>b", group = "buffer", icon = "" },
         { "<leader>c", group = "code", icon = "" },
@@ -24,7 +25,6 @@ return {
         { "<leader>L", group = "Lazy", icon = "󰒲" },
         { "<leader>p", group = "clipboard", icon = "" },
         { "<leader>s", group = "search", icon = "" },
-        { "<leader>t", group = "supermaven", icon = "" },
         { "<leader>u", group = "ui", icon = "󰨇" },
         { "<leader>x", group = "diagnostics/quickfix", icon = "󱖫" },
         { "<leader>z", icon = "󱅻" },
