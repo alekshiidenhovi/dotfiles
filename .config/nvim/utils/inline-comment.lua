@@ -4,8 +4,8 @@
 
 
 ---@class InlineComment.LanguageConfig
----@field language_rules string[] List of language-specific docstring rules
----@field docstring_locations string[] List of code elements to document
+---@field language_rules string
+---@field docstring_locations string[]
 
 
 ---@class InlineComment
@@ -19,11 +19,11 @@ local M = {}
 ---@type table<InlineComment.Filetype, InlineComment.LanguageConfig>
 local language_configs = {
   python = {
-    language_rules = {
-      "Use NumPy-style docstrings.",
-      "Include 'Parameters', 'Returns', and 'Examples' sections where relevant.",
-      "Use triple double quotes for multi-line docstrings.",
-    },
+    language_rules = [[
+- Use NumPy-style docstrings
+- Include 'Parameters', 'Returns', and 'Examples' sections where relevant.
+- Use triple double quotes for multi-line docstrings.
+]],
     docstring_locations = {
       "functions",
       "classes",
@@ -33,10 +33,10 @@ local language_configs = {
   },
 
   lua = {
-    language_rules = {
-      "Use LuaDoc-style comments starting with three hyphens (---).",
-      "Document function parameters and return values using @param and @return tags.",
-    },
+    language_rules = [[
+- Use LuaDoc-style comments starting with three hyphens (---).
+- Document function parameters and return values using @param and @return tags.
+]],
     docstring_locations = {
       "functions",
       "modules",
@@ -44,10 +44,10 @@ local language_configs = {
   },
 
   javascript = {
-    language_rules = {
-      "Use JSDoc-style comments with /** ... */.",
-      "Document function arguments with @param and return value with @returns.",
-    },
+    language_rules = [[
+- Use JSDoc-style comments with /** ... */.
+- Document function arguments with @param and return value with @returns.
+]],
     docstring_locations = {
       "functions",
       "classes",
@@ -56,10 +56,10 @@ local language_configs = {
   },
 
   dart = {
-    language_rules = {
-      "Use DartDoc-style comments starting with three slashes (///).",
-      "Document function parameters and return values using @param and @return tags.",
-    },
+    language_rules = [[
+- Use DartDoc-style comments starting with three slashes (///).
+- Document function parameters and return values using @param and @return tags."
+]],
     docstring_locations = {
       "functions",
       "classes",
@@ -153,12 +153,11 @@ function M.construct_docstring_generation_prompt(filetype, scope)
   if scope == "block" or scope == "buffer" then
     scope_rule_list = "\n" .. format_bullet_list(config.docstring_locations)
   end
-  local language_rule_list = format_bullet_list(config.language_rules)
 
   return string.format(
     prompt_template,
     filetype,
-    language_rule_list,
+    config.language_rules,
     scope,
     scope_instruction,
     scope_rule_list
