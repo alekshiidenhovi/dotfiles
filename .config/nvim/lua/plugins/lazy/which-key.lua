@@ -29,7 +29,6 @@ return {
         { "<leader>u", group = "ui", icon = "󰨇" },
         { "<leader>x", group = "diagnostics/quickfix", icon = "󱖫" },
         { "<leader>z", icon = "󱅻" },
-        { "<leader>,", icon = "" },
         { "<leader>/", icon = "󱎸" },
         { "<leader>:", icon = "" },
         { "<leader><space>", icon = "" },

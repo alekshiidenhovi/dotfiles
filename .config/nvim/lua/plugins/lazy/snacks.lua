@@ -144,7 +144,6 @@ return {
     keys = {
       -- Pickers
       { "<leader><space>", function() require("snacks").picker.smart({ hidden = true }) end,                                 desc = "Smart Find Files" },
-      { "<leader>,",       function() require("snacks").picker.buffers({ hidden = true }) end,                               desc = "Buffers" },
       { "<leader>/",       function() require("snacks").picker.grep({ hidden = true }) end,                                  desc = "Grep" },
       { "<leader>:",       function() require("snacks").picker.command_history({ hidden = true }) end,                       desc = "Command History" },
       { "<leader>e",       function() require("snacks").explorer({ hidden = true }) end,                                     desc = "File-tree Explorer" },
