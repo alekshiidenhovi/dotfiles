@@ -23,6 +23,7 @@ return {
         { "<leader>f", group = "files", icon = "󰈞" },
         { "<leader>g", group = "git", icon = "" },
         { "<leader>L", group = "Lazy", icon = "󰒲" },
+        { "<leader>n", icon = "" },
         { "<leader>p", group = "clipboard", icon = "" },
         { "<leader>s", group = "search", icon = "" },
         { "<leader>u", group = "ui", icon = "󰨇" },
