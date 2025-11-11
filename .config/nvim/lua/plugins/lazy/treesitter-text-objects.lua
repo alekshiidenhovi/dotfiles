@@ -37,11 +37,11 @@ return {
           swap = {
             enable = true,
             swap_next = {
-              ["<leader>p"] = { query = "@parameter.inner", desc = "Swap Next Parameter" },
+              ["<leader><Right>"] = { query = "@parameter.inner", desc = "Swap Next Parameter" },
 
             },
             swap_previous = {
-              ["<leader>P"] = { query = "@parameter.inner", desc = "Swap Previous Parameter" },
+              ["<leader><Left>"] = { query = "@parameter.inner", desc = "Swap Previous Parameter" },
             },
           },
         }
