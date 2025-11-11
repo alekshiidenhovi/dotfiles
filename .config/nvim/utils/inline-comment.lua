@@ -92,21 +92,21 @@ local ts_scope_map = {
 
 
 local prompt_template = [[
-Role:
+[ROLE]
 - You are an expert in documenting code by adding helpful docstrings.
 
-General rules:
+[GENERAL RULES]
 - Do not modify existing code
 - Do not add new code
 - Only add comments to specified places.
 
-Language-specific rules (filetype: %s):
+[LANGUAGE-SPECIFIC RULES (filetype: %s)]
 %s
 
-Scope:
+[SCOPE]
 %s - %s
 ‰s
-Task:
+[TASK]
 - Follow the general and language-specific documentation rules, and add/update docstrings to the defined scope.
 ]]
 
