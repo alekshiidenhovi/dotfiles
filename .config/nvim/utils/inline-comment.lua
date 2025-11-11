@@ -107,8 +107,8 @@ Language-specific rules:
 %s
 
 Scope:
-%s - %s%s
-
+%s - %s
+‰s
 Task:
 - Follow the general and language-specific documentation rules, and add documentation/docstrings to the defined scope.
 ]]
@@ -149,9 +149,9 @@ function M.construct_docstring_generation_prompt(filetype, scope)
     return nil
   end
 
-  local scope_rule_list = ""
+  local scope_rule_list = "\n"
   if scope == "block" or scope == "buffer" then
-    scope_rule_list = "\n" .. format_bullet_list(config.docstring_locations)
+    scope_rule_list = scope_rule_list .. format_bullet_list(config.docstring_locations)
   end
 
   return string.format(
