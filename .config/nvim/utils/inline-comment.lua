@@ -5,7 +5,7 @@
 
 ---@class InlineComment.LanguageConfig
 ---@field language_rules string[] List of language-specific docstring rules
----@field documentation_locations string[] List of code elements to document
+---@field docstring_locations string[] List of code elements to document
 
 
 ---@class InlineComment
@@ -24,7 +24,7 @@ local language_configs = {
       "Include 'Parameters', 'Returns', and 'Examples' sections where relevant.",
       "Use triple double quotes for multi-line docstrings.",
     },
-    documentation_locations = {
+    docstring_locations = {
       "functions",
       "classes",
       "methods",
@@ -37,7 +37,7 @@ local language_configs = {
       "Use LuaDoc-style comments starting with three hyphens (---).",
       "Document function parameters and return values using @param and @return tags.",
     },
-    documentation_locations = {
+    docstring_locations = {
       "functions",
       "modules",
     },
@@ -48,7 +48,7 @@ local language_configs = {
       "Use JSDoc-style comments with /** ... */.",
       "Document function arguments with @param and return value with @returns.",
     },
-    documentation_locations = {
+    docstring_locations = {
       "functions",
       "classes",
       "methods",
@@ -60,7 +60,7 @@ local language_configs = {
       "Use DartDoc-style comments starting with three slashes (///).",
       "Document function parameters and return values using @param and @return tags.",
     },
-    documentation_locations = {
+    docstring_locations = {
       "functions",
       "classes",
       "methods",
@@ -151,7 +151,7 @@ function M.construct_docstring_generation_prompt(filetype, scope)
 
   local scope_rule_list = ""
   if scope == "block" or scope == "buffer" then
-    scope_rule_list = "\n" .. format_bullet_list(config.documentation_locations)
+    scope_rule_list = "\n" .. format_bullet_list(config.docstring_locations)
   end
   local language_rule_list = format_bullet_list(config.language_rules)
 
