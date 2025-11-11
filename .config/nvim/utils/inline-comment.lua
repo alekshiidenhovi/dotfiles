@@ -57,8 +57,7 @@ local language_configs = {
 
   dart = {
     language_rules = [[
-- Use DartDoc-style comments starting with three slashes (///).
-- Document function parameters and return values using @param and @return tags."
+- Follow Effective Dart guidelines: https://dart.dev/effective-dart/documentation.
 ]],
     docstring_locations = {
       "functions",
