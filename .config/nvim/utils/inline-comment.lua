@@ -107,7 +107,7 @@ Scope:
 %s - %s
 ‰s
 Task:
-- Follow the general and language-specific documentation rules, and add documentation/docstrings to the defined scope.
+- Follow the general and language-specific documentation rules, and add/update docstrings to the defined scope.
 ]]
 
 
