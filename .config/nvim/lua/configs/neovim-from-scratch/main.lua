@@ -32,10 +32,10 @@ require("lazy").setup({
 })
 
 _G.dd = function(...)
-  Snacks.debug.inspect(...)
+  require("snacks").debug.inspect(...)
 end
 _G.bt = function()
-  Snacks.debug.backtrace()
+  require("snacks").debug.backtrace()
 end
 
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", { silent = true, desc = "Lazy" })
