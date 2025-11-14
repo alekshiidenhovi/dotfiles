@@ -95,9 +95,9 @@ local prompt_template = [[
 - You are an expert in documenting code by adding helpful docstrings.
 
 [GENERAL RULES]
-- Do not modify existing code
+- Do not modify nor remove existing code.
 - Do not add new code
-- Only add comments to specified places.
+- Only add comments/docstrings to specified places.
 
 [LANGUAGE-SPECIFIC RULES (filetype: %s)]
 %s
@@ -107,6 +107,7 @@ local prompt_template = [[
 ‰s
 [TASK]
 - Follow the general and language-specific documentation rules, and add/update docstrings to the defined scope.
+- Include also the unmodified parts of the code in the output (imports, etc.).
 ]]
 
 
