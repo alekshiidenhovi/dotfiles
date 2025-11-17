@@ -147,13 +147,16 @@ return {
       { "<leader>/",       function() require("snacks").picker.grep({ hidden = true }) end,                                  desc = "Grep" },
       { "<leader>:",       function() require("snacks").picker.command_history({ hidden = true }) end,                       desc = "Command History" },
       { "<leader>e",       function() require("snacks").explorer({ hidden = true }) end,                                     desc = "File-tree Explorer" },
-      -- find
-      { "<leader>fb",      function() require("snacks").picker.buffers({ hidden = true }) end,                               desc = "Buffers" },
+
+      -- files
+      { "<leader>fb",      function() require("snacks").picker.buffers({ hidden = true }) end,                               desc = "Find Buffers" },
       { "<leader>fc",      function() require("snacks").picker.files({ hidden = true, cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
       { "<leader>ff",      function() require("snacks").picker.files({ hidden = true }) end,                                 desc = "Find Files" },
       { "<leader>fg",      function() require("snacks").picker.git_files({ hidden = true }) end,                             desc = "Find Git Files" },
-      { "<leader>fp",      function() require("snacks").picker.projects({ hidden = true }) end,                              desc = "Projects" },
-      { "<leader>fr",      function() require("snacks").picker.recent({ hidden = true }) end,                                desc = "Recent" },
+      { "<leader>fp",      function() require("snacks").picker.projects({ hidden = true }) end,                              desc = "Find Projects" },
+      { "<leader>fr",      function() require("snacks").picker.recent({ hidden = true }) end,                                desc = "Find Recent Files" },
+      { "<leader>fR",      function() require("snacks").rename.rename_file() end,                                            desc = "Rename File" },
+
       -- git
       { "<leader>gb",      function() require("snacks").picker.git_branches({ hidden = true }) end,                          desc = "Git Branches" },
       { "<leader>gl",      function() require("snacks").picker.git_log({ hidden = true }) end,                               desc = "Git Log" },
@@ -217,7 +220,6 @@ return {
       { "]]",              function() require("snacks").words.jump(vim.v.count1) end,                                        desc = "Next LSP Reference",         mode = { "n", "t" } },
       { "[[",              function() require("snacks").words.jump(-vim.v.count1) end,                                       desc = "Prev LSP Reference",         mode = { "n", "t" } },
       { "<leader>z",       function() require("snacks").zen() end,                                                           desc = "Zen Mode" },
-      { "<leader>cR",      function() require("snacks").rename.rename_file() end,                                            desc = "Rename File" },
       { "<leader>un",      function() require("snacks").notifier.hide() end,                                                 desc = "Dismiss All Notifications" },
       { "<leader>n",       function() require("snacks").notifier.show_history() end,                                         desc = "Notification History" },
     }

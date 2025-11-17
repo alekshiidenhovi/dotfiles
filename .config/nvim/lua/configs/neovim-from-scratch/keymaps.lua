@@ -36,11 +36,11 @@ keymap('i', '<A-b>', '<C-o>b', { desc = 'Move word backward' })
 keymap('i', '<A-f>', '<C-o>w', { desc = 'Move word forward' })
 
 -- Clipboard --
-keymap("v", "<leader>py", "\"+y", { silent = true, desc = "Yank Selection" })
-keymap("n", "<leader>py", "\"+yy", { silent = true, desc = "Yank Line" })
-keymap("n", "<leader>pc", ":%y+<CR>", { silent = true, desc = "Copy Buffer" })
-keymap("n", "<leader>pp", "\"+p", { silent = true, desc = "Paste Below" })
-keymap("n", "<leader>pP", "\"+P", { silent = true, desc = "Paste Above" })
+keymap("v", "<leader>cy", "\"+y", { silent = true, desc = "Yank Selection" })
+keymap("n", "<leader>cy", "\"+yy", { silent = true, desc = "Yank Line" })
+keymap("n", "<leader>cc", ":%y+<CR>", { silent = true, desc = "Copy Buffer" })
+keymap("n", "<leader>cp", "\"+p", { silent = true, desc = "Paste Below" })
+keymap("n", "<leader>cP", "\"+P", { silent = true, desc = "Paste Above" })
 
 -- Visual --
 -- Stay in indent mode
