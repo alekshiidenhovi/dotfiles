@@ -7,14 +7,14 @@ return {
         keymaps = {
           insert = "<C-g>s",
           insert_line = false,
-          normal = "<leader>ma",
-          normal_cur = "<leader>mA",
+          normal = "<leader>sa",
+          normal_cur = "<leader>sA",
           normal_line = false,
           normal_cur_line = false,
-          visual = "<leader>mv",
+          visual = "<leader>sv",
           visual_line = false,
-          delete = "<leader>md",
-          change = "<leader>mc",
+          delete = "<leader>sd",
+          change = "<leader>sc",
           change_line = false
         },
       })
