@@ -22,7 +22,7 @@ return {
         { "<leader>e", icon = "󰙅" },
         { "<leader>f", group = "files", icon = "󰈞" },
         { "<leader>g", group = "git", icon = "" },
-        { "<leader>h", icon = "" },
+        { "<leader>h", group = "harpoon", icon = "" },
         { "<leader>L", group = "Lazy", icon = "󰒲" },
         { "<leader>m", group = "code/modify", icon = "󰗅" },
         { "<leader>n", icon = "" },
