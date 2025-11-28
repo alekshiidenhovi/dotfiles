@@ -23,6 +23,7 @@ return {
         dartls = {},
         ruff = {},
         gleam = {},
+        rust_analyzer = {},
       }
     },
     config = function(_, opts)
