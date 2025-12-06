@@ -6,6 +6,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "nvim-treesitter/nvim-treesitter-textobjects",
     },
+    version = "17.33.0",
     config = function()
       require("codecompanion").setup({
         strategies = {
