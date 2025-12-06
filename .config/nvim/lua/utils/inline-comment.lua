@@ -100,7 +100,28 @@ Components, such as modules, structs, functions or macros, should be documented 
 [even more advanced explanations if necessary]
 ```
 
-Do not write type signatures in the documentation, since `rustdoc` adds hyperlinks to all types in the function signature automatically.
+Have a dedicated arguments (h1) and returns (h1) sections to describe what the arguments and return values represent. Leave out the type signature from these sections, they are added automatically by rustdoc. In case of a result return type, describe the success criteria and each failure case with a single sentence.
+
+```
+/// One line summary of the core functionality of the function.
+///
+/// # Arguments
+///
+/// * `arg1`: One sentence description of the first argument.
+/// * `arg2`: Another one sentence description of the second argument.
+///
+/// # Returns
+///
+/// A single sentence description of the success case.
+/// - A single sentence description for each optional failure case.
+///
+/// # Examples
+///
+/// ```
+fn example_function(arg1: Type1, arg2: Type2) -> Result<Type3, Error> {
+    // code
+}
+```
 
 A panic section is recommended every time edge cases in your code can be reached if known.
 
@@ -116,11 +137,14 @@ The basic syntax is the following:
 ///
 /// ```
 /// let x = 5;
+/// assert_eq!(x, 5);
 /// ````
 ```
 Triple backticks start and end code blocks. By default, rustdoc assumes blocks to be Rust code, but you can specify your own language after the first backticks.
 
-You may add lines that start with `#` to hide parts of the tested code. This can be used to ensure that tests compile successfully, while maintaining easy readability of the tests.
+Write each test in a separate code block.
+
+You may add lines that start with `#` to hide parts of the tested code. Use this to ensure that tests compile successfully, while maintaining easy readability of the tests.
 
 `?` may be used to skip complete error handling in doc tests. You must ensure that the error type is disambiguated.
 
