@@ -67,6 +67,74 @@ local language_configs = {
       "fields",
       "enums",
     },
+  },
+
+  rust = {
+    language_rules = [[
+Documentation is generated using rustdoc.
+
+# Syntax
+The `///` syntax is used to document the item present after it, e.g. a function, trait, etc. The `//!` syntax is used to document the item it is present inside, e.g. the entire crate.
+
+# Rules
+All public items must be documented.
+
+# #[doc] attribute
+
+## Crates
+
+Documenting a crate should begin with front-page documentation. Summarize the role of the crate with a single sentence without highly technical details. Then explain to readers why you want to use the crate.
+
+After introducing the crate, provide examples of how to use the crate. Focus on the library's role in the examples, but provide working code, so users may copy and paste examples to get started.
+
+## Components
+Components, such as modules, structs, functions or macros, should be documented with a `///` block. It is recommended that each item's documentation follows this basic structure:
+
+```
+[short sentence explaining what the component does]
+
+[more detailed explanation]
+
+[at least one code example that users can copy/paste to try it]
+
+[even more advanced explanations if necessary]
+```
+
+Do not write type signatures in the documentation, since `rustdoc` adds hyperlinks to all types in the function signature automatically.
+
+A panic section is recommended every time edge cases in your code can be reached if known.
+
+## Markdown
+`rustdoc` uses the CommonMark Markdown specification. In addition to the standard CommonMark syntax, `rustdoc` support several extensions, such as strikethroughs, footnotes, tables, task lists, smart punctuation and warning blocks.
+
+# Documentation tests
+`rustdoc` supports executing documentation examples as tests.
+
+The basic syntax is the following:
+```rust
+/// # Examples
+///
+/// ```
+/// let x = 5;
+/// ````
+```
+Triple backticks start and end code blocks. By default, rustdoc assumes blocks to be Rust code, but you can specify your own language after the first backticks.
+
+You may add lines that start with `#` to hide parts of the tested code. This can be used to ensure that tests compile successfully, while maintaining easy readability of the tests.
+
+`?` may be used to skip complete error handling in doc tests. You must ensure that the error type is disambiguated.
+
+Attributes can be used to help `rustdoc` do the right thing when testing your code. `should_panic` tells that the code should compile correctly but panic during execution. `no_run` should be able to compile the code but not run it. `compile_fail` tells that the compilation ought to fail.
+]],
+    docstring_locations = {
+      "functions",
+      "modules",
+      "structs",
+      "traits",
+      "enums",
+      "constants",
+      "crates",
+    },
   }
 }
 
