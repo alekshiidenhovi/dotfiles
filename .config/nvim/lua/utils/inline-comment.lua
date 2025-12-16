@@ -88,14 +88,14 @@ Documenting a crate should begin with front-page documentation. Summarize the ro
 After introducing the crate, provide examples of how to use the crate. Focus on the library's role in the examples, but provide working code, so users may copy and paste examples to get started.
 
 ## Components
-Components, such as modules, structs, functions or macros, should be documented with a `///` block. It is recommended that each item's documentation follows this basic structure:
+Public components, such as modules, structs, functions or macros, should be documented with a `///` block. It is recommended that each item's documentation follows this basic structure:
 
 ```
 [short sentence explaining what the component does]
 
 [more detailed explanation]
 
-[at least one code example that users can copy/paste to try it]
+[at least one code example that users can copy/paste to try it (only for public items)]
 
 [even more advanced explanations if necessary]
 ```
@@ -118,10 +118,10 @@ Have a dedicated arguments (h1) and returns (h1) sections to describe what the a
 /// # Examples
 ///
 /// ```
-fn example_function(arg1: Type1, arg2: Type2) -> Result<Type3, Error> {
-    // code
-}
-```
+/// fn example_function(arg1: Type1, arg2: Type2) -> Result<Type3, Error> {
+///    // code
+/// }
+/// ```
 
 A panic section is recommended every time edge cases in your code can be reached if known.
 
@@ -129,7 +129,7 @@ A panic section is recommended every time edge cases in your code can be reached
 `rustdoc` uses the CommonMark Markdown specification. In addition to the standard CommonMark syntax, `rustdoc` support several extensions, such as strikethroughs, footnotes, tables, task lists, smart punctuation and warning blocks.
 
 # Documentation tests
-`rustdoc` supports executing documentation examples as tests. Documentation tests may only be written for public items, meaning the item must have a `pub` identifier, such as `pub fn my_function`.
+`rustdoc` supports executing documentation examples as tests. Documentation tests should only be written for public items, meaning the item must have a `pub` identifier, such as `pub fn my_function`.
 
 The basic syntax is the following:
 ```rust
