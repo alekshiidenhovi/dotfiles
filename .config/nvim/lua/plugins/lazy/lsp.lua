@@ -1,3 +1,15 @@
+local vue_ls_dir_path = "/opt/homebrew/lib/node_modules/@vue/language-server"
+if vim.fn.isdirectory(vue_ls_dir_path) == 0 then
+  vim.notify("vue-language-server is not installed. Please install it using NPM.", vim.log.levels.ERROR)
+end
+
+local vue_plugin = {
+  name = "@vue/typescript-plugin",
+  location = vue_ls_dir_path,
+  languages = { "vue" },
+  configNamespace = "typescript"
+}
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -26,6 +38,17 @@ return {
         rust_analyzer = {},
         biome = {},
         tailwindcss = {},
+        vue_ls = {},
+        vtsls = {
+          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+          settings = {
+            vtsls = {
+              tsserver = {
+                globalPlugins = { vue_plugin }
+              }
+            }
+          }
+        }
       }
     },
     config = function(_, opts)
