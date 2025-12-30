@@ -10,6 +10,17 @@ local vue_plugin = {
   configNamespace = "typescript"
 }
 
+local vtsls_config = {
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+  settings = {
+    vtsls = {
+      tsserver = {
+        globalPlugins = { vue_plugin }
+      }
+    }
+  },
+}
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -39,16 +50,8 @@ return {
         biome = {},
         tailwindcss = {},
         vue_ls = {},
-        vtsls = {
-          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-          settings = {
-            vtsls = {
-              tsserver = {
-                globalPlugins = { vue_plugin }
-              }
-            }
-          }
-        }
+        vtsls = vtsls_config,
+        sqruff = {},
       }
     },
     config = function(_, opts)
