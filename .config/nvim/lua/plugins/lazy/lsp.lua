@@ -24,6 +24,7 @@ return {
         ruff = {},
         gleam = {},
         rust_analyzer = {},
+        biome = {},
       }
     },
     config = function(_, opts)
