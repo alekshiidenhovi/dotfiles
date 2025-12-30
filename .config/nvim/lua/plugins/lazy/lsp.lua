@@ -25,6 +25,7 @@ return {
         gleam = {},
         rust_analyzer = {},
         biome = {},
+        tailwindcss = {},
       }
     },
     config = function(_, opts)
