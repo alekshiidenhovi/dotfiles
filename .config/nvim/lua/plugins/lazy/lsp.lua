@@ -52,6 +52,7 @@ return {
         vue_ls = {},
         vtsls = vtsls_config,
         sqruff = {},
+        docker_language_server = {},
       }
     },
     config = function(_, opts)
