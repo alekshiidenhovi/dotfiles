@@ -53,6 +53,7 @@ return {
         vtsls = vtsls_config,
         sqruff = {},
         docker_language_server = {},
+        jsonls = {},
       }
     },
     config = function(_, opts)
