@@ -64,6 +64,7 @@ return {
         exclude = { "node_modules", ".git" },
         sources = {
           explorer = {
+            include = { "node_modules" },
             hidden = true,
             win = {
               input = {
