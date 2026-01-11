@@ -61,6 +61,7 @@ return {
 
       ---@class snacks.picker.Config
       picker = {
+        exclude = { "node_modules", ".git" },
         sources = {
           explorer = {
             hidden = true,
