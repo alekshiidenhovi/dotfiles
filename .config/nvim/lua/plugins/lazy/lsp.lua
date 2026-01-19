@@ -54,6 +54,7 @@ return {
         sqruff = {},
         docker_language_server = {},
         jsonls = {},
+        svelte = {},
       }
     },
     config = function(_, opts)
