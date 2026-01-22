@@ -63,6 +63,11 @@ return {
       picker = {
         ignored = false,
         sources = {
+          files = {
+            hidden = true,
+            ignored = true,
+            exclude = { ".git", "__pycache__", "node_modules" },
+          },
           explorer = {
             include = {
               "node_modules",
