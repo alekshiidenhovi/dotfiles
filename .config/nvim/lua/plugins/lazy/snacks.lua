@@ -61,10 +61,14 @@ return {
 
       ---@class snacks.picker.Config
       picker = {
-        exclude = { "node_modules", ".git" },
+        ignored = false,
         sources = {
           explorer = {
-            include = { "node_modules" },
+            include = {
+              "node_modules",
+              ".config/*",
+              "*.env*",
+            },
             hidden = true,
             win = {
               input = {
