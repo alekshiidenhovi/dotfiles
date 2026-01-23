@@ -66,7 +66,7 @@ return {
           files = {
             hidden = true,
             ignored = true,
-            exclude = { ".git", "__pycache__", "node_modules" },
+            exclude = { ".git", "__pycache__", "node_modules", ".dart_tool", "target" },
           },
           explorer = {
             include = {
