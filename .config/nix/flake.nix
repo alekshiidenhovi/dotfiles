@@ -32,6 +32,7 @@
           pkgs.lua-language-server
           pkgs.mkalias
           pkgs.neovim
+          pkgs.nixd
           pkgs.oh-my-posh
           pkgs.pnpm
           pkgs.ripgrep

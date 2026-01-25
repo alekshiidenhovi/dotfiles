@@ -48,6 +48,7 @@ return {
         gleam = {},
         jsonls = {},
         lua_ls = {},
+        nixd = {},
         ruff = {},
         rust_analyzer = {},
         sqruff = {},
