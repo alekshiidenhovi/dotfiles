@@ -1,6 +1,22 @@
-local vue_ls_dir_path = "/opt/homebrew/lib/node_modules/@vue/language-server"
-if vim.fn.isdirectory(vue_ls_dir_path) == 0 then
-  vim.notify("vue-language-server is not installed. Please install it using NPM.", vim.log.levels.ERROR)
+local function get_vue_ts_plugin_path()
+  local handle = io.popen("command -v vue-language-server")
+  local path = handle:read("*a"):gsub("%s+", "")
+  handle:close()
+
+  if path == "" then
+    return nil
+  end
+
+  -- Nix usually installs the actual JS files relative to the binary:
+  -- Binary: /nix/store/.../bin/vue-language-server
+  -- Plugin: /nix/store/.../lib/node_modules/@vue/language-server
+  return path:gsub("/bin/vue-language-server$", "/lib/node_modules/@vue/language-server")
+end
+
+local vue_ls_dir_path = get_vue_ts_plugin_path()
+
+if not vue_ls_dir_path then
+  vim.notify("vue-language-server not found in PATH. Ensure it is in systemPackages.", vim.log.levels.WARN)
 end
 
 local vue_plugin = {

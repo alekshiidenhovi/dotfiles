@@ -34,6 +34,7 @@
           pkgs.mkalias
           pkgs.neovim
           pkgs.nixd
+          pkgs.nodejs_24
           pkgs.pnpm
           pkgs.ripgrep
           pkgs.ruff
