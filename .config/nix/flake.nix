@@ -107,6 +107,24 @@
       # Set Git commit hash for darwin-version.
       system.configurationRevision = self.rev or self.dirtyRev or null;
 
+      system.defaults = {
+        dock = {
+          autohide = true;
+          autohide-time-modifier = 0.5;
+          tilesize = 50;
+          magnification = true;
+          show-process-indicators = true;
+          show-recents = true;
+        };
+        finder = {
+          FXPreferredViewStyle = "Nlsv";
+        };
+        NSGlobalDomain = {
+          AppleICUForce24HourTime = true;
+          AppleShowAllExtensions = true;
+        };
+      };
+
       system.primaryUser = "alekshiidenhovi";
 
       # Used for backwards compatibility, please read the changelog before changing.
