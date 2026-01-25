@@ -17,6 +17,7 @@
         [ 
           pkgs._1password-cli
           pkgs.antidote
+          pkgs.bun
           pkgs.cmake
           pkgs.cmake-language-server
           pkgs.dart
