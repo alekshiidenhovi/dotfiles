@@ -19,7 +19,6 @@
       environment.systemPackages =
         [ 
           pkgs._1password-cli
-          pkgs.antidote
           pkgs.biome
           pkgs.bun
           pkgs.cmake
@@ -28,17 +27,13 @@
           pkgs.docker
           pkgs.docker-language-server
           pkgs.fd
-          pkgs.fzf
           pkgs.gemini-cli
-          pkgs.git
           pkgs.gh
           pkgs.lazygit
-          pkgs.llvmPackages.libcxxClang
           pkgs.lua-language-server
           pkgs.mkalias
           pkgs.neovim
           pkgs.nixd
-          pkgs.oh-my-posh
           pkgs.pnpm
           pkgs.ripgrep
           pkgs.ruff
@@ -52,7 +47,6 @@
           pkgs.uv
           pkgs.vtsls
           pkgs.vue-language-server
-          pkgs.zoxide
         ];
 
       homebrew = {
@@ -82,9 +76,6 @@
 
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
-
-      # Enable alternative shell support in nix-darwin.
-      programs.zsh.enable = true;
 
       system.activationScripts.applications.text = let
         env = pkgs.buildEnv {
@@ -153,11 +144,12 @@
           ".config/ghostty"
           ".config/nix"
           ".config/ohmyposh"
+          ".config/zsh/aliases.zsh"
+          ".config/zsh/keybindings.zsh"
+          ".config/zsh/history_config.zsh"
           ".gitconfig"
           ".gitignore_global"
           ".zprofile"
-          ".zsh"
-          ".zshrc"
         ];
       in {
         home.stateVersion = "25.11";
@@ -165,7 +157,67 @@
         home.file = lib.genAttrs managedFiles (name: {
           source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/${name}";
         });
-};
+
+        # .zshrc configuration
+        programs = {
+          zsh = {
+            enable = true;
+            enableCompletion = true;
+            autosuggestion.enable = true;
+            syntaxHighlighting.enable = true;
+
+            dotDir = ".config/zsh";
+
+            sessionVariables = {
+              EDITOR = "nvim";
+            };
+
+            initContent = ''
+              source ${config.home.homeDirectory}/.config/zsh/aliases.zsh
+              source ${config.home.homeDirectory}/.config/zsh/keybindings.zsh
+              source ${config.home.homeDirectory}/.config/zsh/history_config.zsh
+            '';
+
+            antidote = {
+              enable = true;
+              plugins = [''
+                zsh-users/zsh-completions
+                zdharma-continuum/fast-syntax-highlighting
+                zsh-users/zsh-history-substring-search
+              ''];
+            };
+          };
+
+          oh-my-posh = {
+            enable = true;
+            configFile = "${config.home.homeDirectory}/.config/ohmyposh/default_config.toml";
+          };
+
+          fzf = {
+            enable = true;
+            enableZshIntegration = true;
+          };
+
+          zoxide = {
+            enable = true;
+            enableZshIntegration = true;
+            options = [ "--cmd cd"];
+          };
+
+          git = {
+            enable = true;
+            settings = {
+              user = {
+                name = "Aleks Hiidenhovi";
+                email = "hiidenhovi.aleks@gmail.com";
+              };
+              pull.rebase = true;
+              init.defaultBranch = "main";
+            };
+          };
+        };
+
+      };
     };
   in
   {
