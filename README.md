@@ -7,23 +7,23 @@ My personal, version-controlled configuration dotfiles.
 ### Automatic installation
 
 In order to setup your new machine, you need to execute the following commands:
-1. Install Homebrew by executing:
+1. Install [Homebrew](https://brew.sh) by executing:
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
-2. Install nix-darwin via the Determinate Systems installer: 
+2. Install nix via the [Lix](https://lix.systems/install/#on-any-other-linuxmacos-system) installer:
 ```bash
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+curl -sSf -L https://install.lix.systems/lix | sh -s -- install
 ```
 3. Clone the dotfiles repository by executing the following commands:
 ```bash
 mkdir -p ~/repos
 git clone git@github.com:alekshiidenhovi/dotfiles.git ~/repos/dotfiles
 ```
-4. Boostrap the nix-darwin environment by running (you may need to run `sudo` depending on your setup):
+4. Boostrap the [nix-darwin](https://github.com/nix-darwin/nix-darwin) environment by running:
 ```bash
 cd ~/repos/dotfiles/
-nix run nix-darwin -- switch --flake .config/nix#aleks-nix-darwin
+sudo nix run nix-darwin -- switch --flake .config/nix#aleks-nix-darwin
 ```
 
 After the bootstrapping is complete, the following things have been setup to your Mac:
