@@ -5,9 +5,12 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = { self, nix-darwin, nixpkgs, home-manager }:
   let
     configuration = { pkgs, config, ... }: {
       nixpkgs.config.allowUnfree = true;
@@ -42,7 +45,6 @@
           pkgs.rustup
           pkgs.rust-analyzer
           pkgs.sqruff
-          pkgs.stow
           pkgs.svelte-language-server
           pkgs.tailwindcss-language-server
           pkgs.tree
@@ -133,13 +135,47 @@
 
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = "aarch64-darwin";
+
+      users.users.alekshiidenhovi = {
+        name = "alekshiidenhovi";
+        home = "/Users/alekshiidenhovi";
+      };
+
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.users.alekshiidenhovi = { config, lib, ... }: 
+      let
+        dotfilesPath = "${config.home.homeDirectory}/repos/dotfiles";
+        
+        # List the specific sub-directories or files you want to track
+        managedFiles = [
+          ".config/nvim"
+          ".config/ghostty"
+          ".config/nix"
+          ".config/ohmyposh"
+          ".gitconfig"
+          ".gitignore_global"
+          ".zprofile"
+          ".zsh"
+          ".zshrc"
+        ];
+      in {
+        home.stateVersion = "25.11";
+        
+        home.file = lib.genAttrs managedFiles (name: {
+          source = config.lib.file.mkOutOfStoreSymlink "${dotfilesPath}/${name}";
+        });
+};
     };
   in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#aleks-nix-darwin
     darwinConfigurations."aleks-nix-darwin" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+      modules = [ 
+        configuration 
+        home-manager.darwinModules.home-manager
+      ];
     };
   };
 }
