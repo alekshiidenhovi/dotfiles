@@ -105,6 +105,7 @@
         dock = {
           autohide = true;
           autohide-time-modifier = 0.5;
+          largesize = 70;
           tilesize = 50;
           magnification = true;
           show-process-indicators = true;
