@@ -41,7 +41,10 @@ cp ~/repos/dotfiles/.config/nvim/.env.template ~/repos/dotfiles/.config/nvim/.en
 
 ### Post-installation
 
-Whenever you modify the `flake.nix` or any other files within `~/repos/dotfiles`, apply the changes by running: `darwin-rebuild switch --flake .config/nix#aleks-nix-darwin`.
+Whenever you modify the `flake.nix` or any other files within `~/repos/dotfiles`, apply the changes by running: 
+```bash
+sudo darwin-rebuild switch --flake .config/nix#aleks-nix-darwin
+```
 
 ## Main software / plugins
 
