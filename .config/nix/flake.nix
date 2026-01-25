@@ -168,7 +168,7 @@
             autosuggestion.enable = true;
             syntaxHighlighting.enable = true;
 
-            dotDir = ".config/zsh";
+            dotDir = "${config.home.homeDirectory}/.config/zsh";
 
             sessionVariables = {
               EDITOR = "nvim";
