@@ -24,6 +24,7 @@
           pkgs.cmake
           pkgs.cmake-language-server
           pkgs.dart
+          pkgs.deno
           pkgs.docker
           pkgs.docker-language-server
           pkgs.fd
