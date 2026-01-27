@@ -1,3 +1,5 @@
+local projects = { "~/repos/dotfiles", "~/repos/dotfiles/.config/nvim" }
+
 return {
   {
     "folke/snacks.nvim",
@@ -22,7 +24,7 @@ return {
         sections = {
           { section = "header" },
           { section = "keys",     gap = 1,            padding = 2 },
-          { section = "projects", title = "Projects", indent = 2, padding = 3 },
+          { section = "projects", title = "Projects", indent = 2, padding = 3, dirs = projects },
           { section = "startup" },
         },
         preset = {
@@ -89,7 +91,11 @@ return {
             },
           },
           gh_issue = {},
-          gh_pr = {}
+          gh_pr = {},
+          projects = {
+            projects = projects,
+            recent = false,
+          }
         },
       },
 
