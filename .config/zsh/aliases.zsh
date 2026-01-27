@@ -11,6 +11,7 @@ alias gamend='git commit --no-edit --amend'
 
 alias n='nvim'
 alias dc='docker-compose'
+alias kubectl='minikube kubectl --'
 
 gundo() {
     if [ -z "$1" ]; then
