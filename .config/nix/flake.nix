@@ -32,6 +32,7 @@
           pkgs.gh
           pkgs.lazygit
           pkgs.lua-language-server
+          pkgs.minikube
           pkgs.mkalias
           pkgs.neovim
           pkgs.nixd
