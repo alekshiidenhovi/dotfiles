@@ -120,6 +120,37 @@
           AppleICUForce24HourTime = true;
           AppleShowAllExtensions = true;
         };
+        CustomUserPreferences = {
+          "com.apple.symbolichotkeys" = {
+            AppleSymbolicHotKeys = {
+              # 32 = Mission Control
+              "32" = { enabled = false; };
+              # 33 = Mission Control (dedicated key)
+              "33" = { enabled = false; };
+              # 35 = Application Windows
+              "35" = { enabled = false; };
+
+              # 60 = Spotlight Search
+              "60" = { enabled = false; };
+              # 61 = Spotlight Finder Window
+              "61" = { enabled = false; };
+
+              # 64 = Select previous input source (language)
+              "64" = { enabled = false; };
+              # 65 = Select next input source (language)
+              "65" = { enabled = false; };
+
+              # 79 = Move left a space (^←)
+              "79" = { enabled = false; };
+              # 80 = Move left a space (^←)
+              "80" = { enabled = false; };
+              # 81 = Move right a space (^→)
+              "81" = { enabled = false; };
+              # 82 = Move right a space (^→)
+              "82" = { enabled = false; };
+            };
+          };
+        };
       };
 
       system.primaryUser = "alekshiidenhovi";
