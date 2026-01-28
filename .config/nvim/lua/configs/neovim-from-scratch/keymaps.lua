@@ -63,3 +63,5 @@ keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", { silent = true, desc = "Move To Windo
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", { silent = true, desc = "Move To Window Right" })
 
 keymap("t", "<C-q>", "<C-\\><C-n>", { silent = true, desc = "Enter Normal Mode" })
+keymap("t", "<A-BS>", "<C-w>", { silent = true, desc = "Delete Word in Terminal" })
+keymap("c", "<A-BS>", "<C-w>", { silent = true, desc = "Delete Word in Command Line" })
