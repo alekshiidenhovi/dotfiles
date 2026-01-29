@@ -38,6 +38,7 @@
           pkgs.nixd
           pkgs.nodejs_24
           pkgs.pnpm
+          pkgs.python313
           pkgs.ripgrep
           pkgs.ruff
           pkgs.rustup
@@ -205,6 +206,8 @@
 
             sessionVariables = {
               EDITOR = "nvim";
+              UV_PYTHON = "${pkgs.python313}/bin/python3";
+              UV_PYTHON_DOWNLOADS = "never";
             };
 
             initContent = ''
