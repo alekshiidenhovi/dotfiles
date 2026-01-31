@@ -19,6 +19,7 @@
       environment.systemPackages =
         [ 
           pkgs._1password-cli
+          pkgs.astro-language-server
           pkgs.biome
           pkgs.bun
           pkgs.cmake
@@ -48,6 +49,7 @@
           pkgs.tailwindcss-language-server
           pkgs.tree
           pkgs.tree-sitter
+          pkgs.typescript
           pkgs.uv
           pkgs.vtsls
           pkgs.vue-language-server

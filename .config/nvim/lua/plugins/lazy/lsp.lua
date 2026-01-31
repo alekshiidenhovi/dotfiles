@@ -1,19 +1,33 @@
-local function get_vue_ts_plugin_path()
-  local handle = io.popen("command -v vue-language-server")
+local function resolve_nix_path(command)
+  local handle = io.popen("command -v " .. command)
   local path = handle:read("*a"):gsub("%s+", "")
   handle:close()
 
-  if path == "" then
-    return nil
-  end
+  if path == "" then return nil end
 
-  -- Nix usually installs the actual JS files relative to the binary:
-  -- Binary: /nix/store/.../bin/vue-language-server
-  -- Plugin: /nix/store/.../lib/node_modules/@vue/language-server
-  return path:gsub("/bin/vue-language-server$", "/lib/node_modules/@vue/language-server")
+  -- Resolve symlink to the actual /nix/store path
+  local real_path_handle = io.popen("readlink -f " .. path)
+  local real_path = real_path_handle:read("*a"):gsub("%s+", "")
+  real_path_handle:close()
+
+  return real_path
+end
+
+local function get_vue_ts_plugin_path()
+  local real_path = resolve_nix_path("vue-language-server")
+  if not real_path then return nil end
+  vim.notify("vue-language-server path: " .. real_path)
+  return real_path:gsub("/bin/vue-language-server$", "/lib/language-tools/packages/language-server/lib")
+end
+
+local function get_typescript_server_path()
+  local real_path = resolve_nix_path("tsserver")
+  if not real_path then return nil end
+  return real_path:gsub("/bin/tsserver$", "/lib/node_modules/typescript/lib")
 end
 
 local vue_ls_dir_path = get_vue_ts_plugin_path()
+local ts_lib_path = get_typescript_server_path()
 
 if not vue_ls_dir_path then
   vim.notify("vue-language-server not found in PATH. Ensure it is in systemPackages.", vim.log.levels.WARN)
@@ -27,13 +41,21 @@ local vue_plugin = {
 }
 
 local vtsls_config = {
-  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "astro" },
   settings = {
     vtsls = {
       tsserver = {
         globalPlugins = { vue_plugin }
       }
     }
+  },
+}
+
+local astro_config = {
+  init_options = {
+    typescript = {
+      tsdk = ts_lib_path,
+    },
   },
 }
 
@@ -46,6 +68,7 @@ return {
     },
     opts = {
       servers = {
+        astro = astro_config,
         biome = {},
         clangd = {},
         cmake = {},
