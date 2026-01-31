@@ -13,17 +13,44 @@ local function resolve_nix_path(command)
   return real_path
 end
 
+-- local function get_vue_ts_plugin_path()
+--   local real_path = resolve_nix_path("vue-language-server")
+--   if not real_path then return nil end
+--   vim.notify("vue-language-server path: " .. real_path)
+--   return real_path:gsub("/bin/vue-language-server$", "/lib/language-tools/packages/typescript-plugin")
+-- end
+--
 local function get_vue_ts_plugin_path()
-  local real_path = resolve_nix_path("vue-language-server")
-  if not real_path then return nil end
-  vim.notify("vue-language-server path: " .. real_path)
-  return real_path:gsub("/bin/vue-language-server$", "/lib/language-tools/packages/language-server/lib")
+  local binary_path = resolve_nix_path("vue-language-server")
+  if not binary_path then
+    vim.notify("vue-language-server not found in PATH. Ensure it is in systemPackages.", vim.log.levels.WARN)
+    return nil
+  end
+
+  -- Use match to grab everything before /bin/ and append the library path
+  -- This is more reliable than gsub for Nix store paths
+  local root_path = binary_path:match("(.*)/bin/vue%-language%-server")
+  if not root_path then
+    vim.notify("Was unable to match vue-language-server path. Ensure it is in systemPackages.", vim.log.levels.WARN)
+    return nil
+  end
+
+  return root_path .. "/lib/language-tools/packages/language-server"
 end
 
 local function get_typescript_server_path()
-  local real_path = resolve_nix_path("tsserver")
-  if not real_path then return nil end
-  return real_path:gsub("/bin/tsserver$", "/lib/node_modules/typescript/lib")
+  local binary_path = resolve_nix_path("tsserver")
+  if not binary_path then
+    vim.notify("tsserver not found in PATH. Ensure it is in systemPackages.", vim.log.levels.WARN)
+    return nil
+  end
+
+  local root_path = binary_path:match("(.*)/bin/tsserver")
+  if not root_path then
+    vim.notify("Was unable to match tsserver path. Ensure it is in systemPackages.", vim.log.levels.WARN)
+  end
+
+  return root_path .. "/lib/node_modules/typescript/lib"
 end
 
 local vue_ls_dir_path = get_vue_ts_plugin_path()
@@ -41,13 +68,16 @@ local vue_plugin = {
 }
 
 local vtsls_config = {
-  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "astro" },
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
   settings = {
     vtsls = {
       tsserver = {
         globalPlugins = { vue_plugin }
       }
-    }
+    },
+    typescript = {
+      tsdk = ts_lib_path,
+    },
   },
 }
 
