@@ -20,6 +20,7 @@
         [ 
           pkgs._1password-cli
           pkgs.astro-language-server
+          pkgs.bat
           pkgs.biome
           pkgs.bun
           pkgs.cmake
